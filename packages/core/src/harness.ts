@@ -2,11 +2,12 @@ import type { Evaluator, Generator, Planner } from '@forge/agents';
 import type { EvalReport, RunRequest } from '@forge/schemas';
 
 import type { HarnessOptions } from './config';
-import type { Module } from './module';
 import {
   resolveRuleConflicts,
   type RuleConflict,
 } from './conflict-resolver';
+import { runPipeline, type HarnessRunDeps } from './harness.run';
+import type { Module } from './module';
 
 export interface HarnessAgents {
   planner: Planner;
@@ -54,15 +55,23 @@ export class Harness {
   }
 
   /**
-   * Execute a single P-G-E run. Implemented in Step 9 once the
-   * Claude Code runtime adapter exists. The signature is frozen here so
-   * modules, the CLI, and tests can type-check against it today.
+   * Execute a single P-G-E run. Walks the Planner → Generator →
+   * Evaluator → (fix-loop) pipeline, persisting every transition under
+   * `.forge/runs/<runId>/`. The caller supplies the runtime that
+   * actually hosts sub-agent spawning — tests use `MockRuntime` from
+   * `@forge/agents`, and slash commands in `@forge/plugin-claude` will
+   * supply a Claude Code adapter in v0.2.
    */
-  async run(_request: RunRequest): Promise<EvalReport> {
-    throw new Error(
-      'Harness.run() is pending Step 9 (Claude Code runtime). ' +
-        'See docs/ARCHITECTURE.md for the planned pipeline.'
-    );
+  async run(
+    request: RunRequest,
+    deps: HarnessRunDeps
+  ): Promise<EvalReport> {
+    if (!deps?.runtime) {
+      throw new Error(
+        'forge: Harness.run() requires deps.runtime (see @forge/agents MockRuntime for tests)'
+      );
+    }
+    return runPipeline(request, this.#opts, this.#agents, deps);
   }
 
   #validateModules(): void {

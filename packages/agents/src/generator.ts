@@ -1,10 +1,25 @@
-import type { Spec } from '@forge/schemas';
+import type { EvalReport, Spec } from '@forge/schemas';
 import type { AgentRuntime } from './runtime';
 
 export interface GeneratorInput {
   runId: string;
   spec: Spec;
   repoRoot: string;
+  /** Absolute path to the `spec.md` the generator reads in its prompt. */
+  specMdPath: string;
+  /**
+   * One absolute directory per sprint, in order. The Harness pre-creates
+   * these; the generator just writes plan.md / diff.patch / self-check.json
+   * / handoff.json into each one.
+   */
+  sprintDirs: readonly string[];
+  /**
+   * Set only when Harness re-enters the Generator after a failed eval.
+   * In that case the first sprint is spawned with `freshContext:true`
+   * and the report is included in its input files.
+   */
+  previousReport?: EvalReport;
+  previousReportMdPath?: string;
 }
 
 /**

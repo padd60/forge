@@ -15,6 +15,16 @@ export interface EvaluatorInput {
    */
   baseRef: string;
   headRef: string;
+  /** Absolute path to the Spec markdown the evaluator will read. */
+  specMdPath: string;
+  /** Absolute path to the diff.patch written by the final sprint. */
+  diffPath: string;
+  /**
+   * Absolute directory for this iteration's artifacts
+   * (`.forge/runs/<runId>/evaluator/iteration-0N/`). The evaluator writes
+   * report.json and report.md into this directory.
+   */
+  iterationDir: string;
 }
 
 export interface Evaluator {

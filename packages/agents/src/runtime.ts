@@ -47,6 +47,11 @@ export interface SpawnRequest {
    * hint.
    */
   freshContext: boolean;
+  /**
+   * Optional debug label that runtimes and tests may surface in logs
+   * (e.g. `generator:run-42:sprint-02`). Never affects behavior.
+   */
+  label?: string;
 }
 
 /**

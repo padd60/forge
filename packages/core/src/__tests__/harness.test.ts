@@ -41,20 +41,24 @@ describe('Harness — construction', () => {
     expect(h.conflicts[0]?.winner).toBe('module-clean-code');
   });
 
-  it('run() throws until Step 9 lands', async () => {
+  it('run() requires deps.runtime', async () => {
     const h = new Harness(
       { config: makeConfig(), modules: [] },
       stubAgents
     );
     await expect(
-      h.run({
-        runId: 'r',
-        goal: 'g',
-        enforcement: 'hybrid',
-        activeModules: [],
-        repoRoot: '/tmp/demo',
-        createdAt: new Date().toISOString(),
-      })
-    ).rejects.toThrow(/Step 9/);
+      // @ts-expect-error — intentionally violating the signature
+      h.run(
+        {
+          runId: 'r',
+          goal: 'g',
+          enforcement: 'hybrid',
+          activeModules: [],
+          repoRoot: '/tmp/demo',
+          createdAt: new Date().toISOString(),
+        },
+        {}
+      )
+    ).rejects.toThrow(/deps\.runtime/);
   });
 });
