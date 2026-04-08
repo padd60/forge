@@ -1,0 +1,59 @@
+{
+  "name": "@forge/eslint-plugin-forge",
+  "version": "0.1.0",
+  "description": "Custom ESLint rules for forge modules (component-max-lines, no-boolean-flag-arg, fsd-slice-boundary, etc.).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./layer": {
+      "types": "./src/layer.ts",
+      "default": "./src/layer.ts"
+    }
+  },
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./layer": {
+        "types": "./dist/layer.d.ts",
+        "import": "./dist/layer.js"
+      }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rimraf dist .turbo",
+    "test": "vitest run",
+    "lint": "eslint src --max-warnings 0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^8.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "@typescript-eslint/rule-tester": "^8.15.0",
+    "eslint": "^9.15.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
