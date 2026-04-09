@@ -18,21 +18,23 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 
 ### Claude Code plugin (recommended)
 
-forge is designed to work inside **Claude Code**. Install it as a plugin and get slash commands (`/forge-run`, `/forge-plan`, `/forge-eval`), auto-activated skills, and the full P-G-E pipeline out of the box:
+forge is designed to work inside **Claude Code**. Install the plugin, initialize your project, then run:
 
 ```
-# In Claude Code
+# Step 1: Install the forge plugin (one-time)
 /plugin marketplace add padd60/forge
 /plugin install forge
+
+# Step 2: Initialize your project (creates .forge/config.json + eslint rules)
+npx @forge-kit-dev/cli init .
+#   → Select modules: FSD, Clean Code, DDD, etc.
+#   → Choose enforcement level: hybrid (default)
+
+# Step 3: Run the full pipeline
+/forge-run "add a login page with email validation"
 ```
 
-Then initialize your project:
-
-```
-/forge-run "set up FSD architecture with login feature"
-```
-
-That's it — forge plans, generates, evaluates, and fixes in one command.
+**Step 2 is required** — `/forge-run` reads `.forge/config.json` to know which modules and rules to apply. Without it, forge doesn't know your architecture choices.
 
 ### npx (standalone CLI)
 
