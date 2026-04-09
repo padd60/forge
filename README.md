@@ -14,20 +14,56 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 - **Dual distribution**: `npx @forge/cli init` or `/plugin install forge`
 - **React/Next.js first**: all rules and rubrics are tuned for this stack
 
-## Quickstart (once v0.1 is published)
+## Install
 
 ```bash
-# 1. Bootstrap a new Next.js project with forge
-npx @forge/cli init my-app
-
-# 2. Or add forge to an existing repo
+# Bootstrap a new or existing Next.js project with forge
 cd my-app
 npx @forge/cli init .
 
-# 3. Install the Claude Code plugin (optional)
-/plugin marketplace add github.com/<your-org>/forge
-/plugin install forge
+# Non-interactive: skip the wizard and specify modules directly
+npx @forge/cli init . --modules fsd,clean-code,ddd --enforcement hybrid
 ```
+
+This creates `.forge/config.json`, `eslint.config.js` (with the forge plugin registered), `.husky/pre-commit`, and `.claude/skills/`.
+
+## /forge-plan demo (Claude Code)
+
+```
+# Inside Claude Code, run:
+/forge-plan "add a login form to the marketing site"
+# → .forge/runs/<id>/planner/spec.json + spec.md
+
+/forge-generate
+# → .forge/runs/<id>/generator/sprint-01/diff.patch
+
+/forge-eval
+# → .forge/runs/<id>/evaluator/iteration-01/report.json (score 0–10)
+
+# If the score is below threshold:
+/forge-fix
+# → re-enters the Generator with the Evaluator's feedback
+```
+
+## Modules
+
+| Module | Block rules (pre-commit) | Advisory rubric (Evaluator) | Skills |
+|---|---|---|---|
+| **module-fsd** | `fsd-slice-boundary` | composition, public-API usage | `fsd-layer-placement`, `fsd-public-api`, `fsd-composition` |
+| **module-clean-code** | `component-max-lines`, `no-boolean-flag-arg`, `max-params`, `no-console`, `complexity` | intent clarity, props drilling, SRP | `clean-code-naming`, `clean-code-srp`, `clean-code-component-size` |
+| **module-ddd** | `ddd-entity-id` | ubiquitous language, anemic model | `ddd-aggregate-root`, `ddd-bounded-context`, `ddd-value-object` |
+| **module-clean-arch** | `clean-arch-domain-isolation` | DIP compliance, interface segregation | `clean-arch-use-case`, `clean-arch-dip` |
+| **module-cqrs** | `cqrs-layer-role` | eventual consistency, sync strategy | `cqrs-read-model`, `cqrs-command` |
+
+## Architecture
+
+forge's architecture is built on two ideas: **physical separation of Generator and Evaluator** (so agents can't rubber-stamp their own work) and a **three-layer rule system** (Mechanical → Skill → Rubric) where each module contributes to one or more layers.
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full P-G-E pipeline diagram, file-based handoff contract, module system, and enforcement levels.
+
+## Quickstart
+
+See [QUICKSTART.md](QUICKSTART.md) for a 5-minute walkthrough from `npx @forge/cli init` to `/forge-eval`.
 
 ## Repository layout
 
@@ -35,36 +71,36 @@ npx @forge/cli init .
 forge/
 ├── apps/
 │   ├── cli/                 # @forge/cli — npx entry
-│   └── playground/          # Next.js demo app (FSD showcase)
+│   └── playground/          # Next.js 14 demo (all 5 modules)
 ├── packages/
-│   ├── schemas/             # @forge/schemas — Zod schemas for Spec/Handoff/Rubric
-│   ├── agents/              # @forge/agents — Planner/Generator/Evaluator interfaces
-│   ├── core/                # @forge/core — Harness orchestrator + module loader
-│   ├── eslint-plugin-forge/ # custom ESLint rules (component-max-lines, slice-boundary, …)
+│   ├── schemas/             # @forge/schemas — Zod schemas
+│   ├── agents/              # @forge/agents — P-G-E interfaces
+│   ├── core/                # @forge/core — Harness orchestrator
+│   ├── eslint-plugin-forge/ # Custom ESLint rules
 │   ├── module-fsd/
 │   ├── module-clean-code/
 │   ├── module-ddd/
 │   ├── module-clean-arch/
 │   ├── module-cqrs/
 │   ├── plugin-claude/       # Claude Code plugin bundle
-│   └── testkit/             # shared rule test harness
+│   └── testkit/             # rule test harness (v0.2)
 ├── examples/
-│   ├── nextjs-fsd-minimal/
-│   ├── nextjs-fsd-ddd/
-│   └── nextjs-cqrs/
-└── docs/                    # ARCHITECTURE.md, CONTRIBUTING.md …
+│   ├── nextjs-fsd-minimal/  # FSD + Clean Code
+│   ├── nextjs-fsd-ddd/      # FSD + DDD + Clean Arch
+│   └── nextjs-cqrs/         # FSD + CQRS
+└── docs/                    # ARCHITECTURE.md, PUBLISHING.md
 ```
 
 ## Core philosophy
 
 1. **Physical separation of Generator and Evaluator.** Agents that evaluate their own work confidently praise mediocrity. forge always spawns the Evaluator in a fresh Claude Code sub-agent with no shared context.
-2. **Three-layer rule system.** Every module contributes to one or more of: **Mechanical** (ESLint, pre-commit, block), **Skill** (auto-activated prompt in Claude Code), **Rubric** (Evaluator advisory score). Hybrid enforcement is an emergent property of this split.
-3. **Options are internal abstractions.** Because every architecture concern is an opt-in module, forge's core is forced to treat them as first-class plug-ins — you get the benefit of modular design whether you turn one on or all five.
+2. **Three-layer rule system.** Every module contributes to one or more of: **Mechanical** (ESLint, pre-commit, block), **Skill** (auto-activated prompt in Claude Code), **Rubric** (Evaluator advisory score).
+3. **Options are internal abstractions.** Because every architecture concern is an opt-in module, forge's core is forced to treat them as first-class plug-ins.
 4. **Harness, not assistant.** forge does not help you write code. It refuses to generate code that violates the architecture you picked, and it tells you why.
 
 ## Status
 
-This is **v0.1 in active development**. The public API will change. See [`/Users/kimjunghwan/.claude/plans/glittery-zooming-flurry.md`](../../.claude/plans/glittery-zooming-flurry.md) for the current implementation plan.
+This is **v0.1** — the first public release. The API may change. See [docs/PUBLISHING.md](docs/PUBLISHING.md) for release procedures.
 
 ## License
 
