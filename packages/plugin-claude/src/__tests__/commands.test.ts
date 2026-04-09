@@ -25,6 +25,21 @@ async function readCmd(name: string): Promise<string> {
  * state where the orchestrator cannot actually orchestrate.
  */
 describe('commands/*.md drift guards', () => {
+  describe('forge-init', () => {
+    it('runs npx @forge-kit-dev/cli init', async () => {
+      const body = await readCmd('forge-init');
+      expect(body).toMatch(/@forge-kit-dev\/cli/);
+      expect(body).toMatch(/init/);
+      expect(body).toMatch(/\.forge\/config\.json/);
+    });
+
+    it('supports non-interactive --modules flag', async () => {
+      const body = await readCmd('forge-init');
+      expect(body).toMatch(/--modules/);
+      expect(body).toMatch(/--enforcement/);
+    });
+  });
+
   describe('forge-plan', () => {
     it('references .forge/runs/ and the planner sub-agent', async () => {
       const body = await readCmd('forge-plan');

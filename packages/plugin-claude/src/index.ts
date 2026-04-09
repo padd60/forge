@@ -9,6 +9,8 @@ export const FORGE_PLUGIN_VERSION = '0.1.0';
 
 /** Absolute names of the slash commands this plugin exposes. */
 export const FORGE_COMMANDS = [
+  'forge-init',
+  'forge-run',
   'forge-plan',
   'forge-generate',
   'forge-eval',

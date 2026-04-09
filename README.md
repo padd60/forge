@@ -25,16 +25,15 @@ forge is designed to work inside **Claude Code**. Install the plugin, initialize
 /plugin marketplace add padd60/forge
 /plugin install forge
 
-# Step 2: Initialize your project (creates .forge/config.json + eslint rules)
-npx @forge-kit-dev/cli init .
-#   → Select modules: FSD, Clean Code, DDD, etc.
-#   → Choose enforcement level: hybrid (default)
+# Step 2: Initialize your project (select modules + create config)
+/forge-init
+#   → Or with specific modules: /forge-init with FSD and DDD
 
 # Step 3: Run the full pipeline
 /forge-run "add a login page with email validation"
 ```
 
-**Step 2 is required** — `/forge-run` reads `.forge/config.json` to know which modules and rules to apply. Without it, forge doesn't know your architecture choices.
+**Step 2 is required** — `/forge-run` reads `.forge/config.json` to know which modules and rules to apply. `/forge-init` creates this config by running the forge CLI wizard.
 
 ### npx (standalone CLI)
 
