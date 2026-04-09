@@ -1,3 +1,6 @@
+// VIOLATION: framework import in domain layer
+import { useState } from 'react';
+
 /**
  * Order aggregate — required by `@forge/forge/ddd-entity-id` to
  * carry an `id` field, and required by
