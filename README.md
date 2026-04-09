@@ -11,7 +11,7 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 - **5 opt-in modules**: FSD / DDD / Clean Architecture / Clean Code / CQRS
 - **Hybrid enforcement**: mechanical rules block commits; semantic rubrics advise
 - **P-G-E pipeline**: physically separated agents with file-based handoff
-- **Dual distribution**: `npx @forge-kit-dev/cli init` or `/plugin install forge`
+- **Dual distribution**: Claude Code plugin (`/forge-init`) or standalone CLI
 - **React/Next.js first**: all rules and rubrics are tuned for this stack
 
 ## Install
@@ -97,14 +97,14 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full P-G-E pipeline dia
 
 ## Quickstart
 
-See [QUICKSTART.md](QUICKSTART.md) for a 5-minute walkthrough from `npx @forge-kit-dev/cli init` to `/forge-eval`.
+See [QUICKSTART.md](QUICKSTART.md) for a 5-minute walkthrough from `/forge-init` to `/forge-run`.
 
 ## Repository layout
 
 ```
 forge/
 ├── apps/
-│   ├── cli/                 # @forge-kit-dev/cli — npx entry
+│   ├── cli/                 # @forge-kit-dev/cli — standalone CLI
 │   └── playground/          # Next.js 14 demo (all 5 modules)
 ├── packages/
 │   ├── schemas/             # @forge-kit-dev/schemas — Zod schemas
