@@ -125,6 +125,117 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
+  examples/nextjs-cqrs:
+    dependencies:
+      next:
+        specifier: 14.2.15
+        version: 14.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@forge/cli':
+        specifier: workspace:*
+        version: link:../../apps/cli
+      '@forge/eslint-plugin-forge':
+        specifier: workspace:*
+        version: link:../../packages/eslint-plugin-forge
+      '@types/node':
+        specifier: ^20.12.0
+        version: 20.19.39
+      '@types/react':
+        specifier: ^18.3.0
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.7(@types/react@18.3.28)
+      '@typescript-eslint/parser':
+        specifier: ^8.15.0
+        version: 8.58.1(eslint@9.39.4)(typescript@5.9.3)
+      eslint:
+        specifier: ^9.15.0
+        version: 9.39.4
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+
+  examples/nextjs-fsd-ddd:
+    dependencies:
+      next:
+        specifier: 14.2.15
+        version: 14.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@forge/cli':
+        specifier: workspace:*
+        version: link:../../apps/cli
+      '@forge/eslint-plugin-forge':
+        specifier: workspace:*
+        version: link:../../packages/eslint-plugin-forge
+      '@types/node':
+        specifier: ^20.12.0
+        version: 20.19.39
+      '@types/react':
+        specifier: ^18.3.0
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.7(@types/react@18.3.28)
+      '@typescript-eslint/parser':
+        specifier: ^8.15.0
+        version: 8.58.1(eslint@9.39.4)(typescript@5.9.3)
+      eslint:
+        specifier: ^9.15.0
+        version: 9.39.4
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+
+  examples/nextjs-fsd-minimal:
+    dependencies:
+      next:
+        specifier: 14.2.15
+        version: 14.2.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@forge/cli':
+        specifier: workspace:*
+        version: link:../../apps/cli
+      '@forge/eslint-plugin-forge':
+        specifier: workspace:*
+        version: link:../../packages/eslint-plugin-forge
+      '@types/node':
+        specifier: ^20.12.0
+        version: 20.19.39
+      '@types/react':
+        specifier: ^18.3.0
+        version: 18.3.28
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.7(@types/react@18.3.28)
+      '@typescript-eslint/parser':
+        specifier: ^8.15.0
+        version: 8.58.1(eslint@9.39.4)(typescript@5.9.3)
+      eslint:
+        specifier: ^9.15.0
+        version: 9.39.4
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+
   packages/agents:
     dependencies:
       '@forge/schemas':
