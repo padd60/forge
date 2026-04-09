@@ -35,7 +35,7 @@ export type Sprint = z.infer<typeof SprintSchema>;
  * Generator in a fresh context.
  *
  * Invariants:
- * - `activeModules` is a subset of the modules loaded by `@forge/core`.
+ * - `activeModules` is a subset of the modules loaded by `@forge-kit-dev/core`.
  * - `sprints[*].acceptanceCriteria` must be checkable by the Evaluator
  *   through either a rubric or a mechanical rule.
  */

@@ -1,4 +1,4 @@
-# @forge/example-nextjs-fsd-minimal
+# @forge-kit-dev/example-nextjs-fsd-minimal
 
 Minimal forge-managed Next.js 14 project activating **FSD + Clean
 Code**. Demonstrates layer direction (`app` → `widgets` → `features`
@@ -9,11 +9,11 @@ Run from the monorepo root:
 
 ```bash
 pnpm seed:examples                                    # regenerate forge config
-pnpm --filter @forge/example-nextjs-fsd-minimal forge:check
+pnpm --filter @forge-kit-dev/example-nextjs-fsd-minimal forge:check
 ```
 
 ## Demo violation branch
 
 - `demo/fsd-bad-slice` — adds a cross-slice deep import under
   `features/newsletter-signup/`, expected to fail
-  `@forge/forge/fsd-slice-boundary`.
+  `@forge-kit-dev/forge/fsd-slice-boundary`.

@@ -1,4 +1,4 @@
-import { defineModule } from '@forge/core';
+import { defineModule } from '@forge-kit-dev/core';
 import { fsdEslintConfig } from './eslint-config.js';
 import { fsdRubrics } from './rubrics.js';
 import { fsdSkills } from './skills.js';

@@ -1,4 +1,4 @@
-import type { ModuleManifest, Rubric } from '@forge/schemas';
+import type { ModuleManifest, Rubric } from '@forge-kit-dev/schemas';
 
 /**
  * Skill shipped by a module. Corresponds to a single `SKILL.md` file

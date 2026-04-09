@@ -1,5 +1,5 @@
 {
-  "name": "@forge/example-nextjs-fsd-minimal",
+  "name": "@forge-kit-dev/example-nextjs-fsd-minimal",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -18,8 +18,8 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@forge/cli": "workspace:*",
-    "@forge/eslint-plugin-forge": "workspace:*",
+    "@forge-kit-dev/cli": "workspace:*",
+    "@forge-kit-dev/eslint-plugin-forge": "workspace:*",
     "@types/node": "^20.12.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",

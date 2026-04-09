@@ -29,7 +29,7 @@ export interface SpawnRequest {
   role: AgentRole;
   /**
    * The agent's base instructions. Modules inject their skill prompts
-   * via `@forge/core`'s `composePrompt()`, not directly here.
+   * via `@forge-kit-dev/core`'s `composePrompt()`, not directly here.
    */
   systemPrompt: string;
   /** Absolute paths the agent is allowed (and expected) to read first. */
@@ -55,7 +55,7 @@ export interface SpawnRequest {
 }
 
 /**
- * Host abstraction for running agents. `@forge/core`'s `Harness` depends
+ * Host abstraction for running agents. `@forge-kit-dev/core`'s `Harness` depends
  * only on this interface; the concrete implementations live in
  * `src/runtime.claude-code.ts` and (later) `src/runtime.standalone.ts`.
  */

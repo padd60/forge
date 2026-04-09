@@ -1,4 +1,4 @@
-import { defineModule } from '@forge/core';
+import { defineModule } from '@forge-kit-dev/core';
 import { cqrsEslintConfig } from './eslint-config.js';
 import { cqrsRubrics } from './rubrics.js';
 import { cqrsSkills } from './skills.js';

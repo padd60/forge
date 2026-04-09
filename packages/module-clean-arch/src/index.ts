@@ -1,4 +1,4 @@
-import { defineModule } from '@forge/core';
+import { defineModule } from '@forge-kit-dev/core';
 import { cleanArchEslintConfig } from './eslint-config.js';
 import { cleanArchRubrics } from './rubrics.js';
 import { cleanArchSkills } from './skills.js';

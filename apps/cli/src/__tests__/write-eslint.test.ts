@@ -4,8 +4,8 @@ import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { defineModule } from '@forge/core';
-import type { Module } from '@forge/core';
+import { defineModule } from '@forge-kit-dev/core';
+import type { Module } from '@forge-kit-dev/core';
 
 import { writeEslintConfig } from '../io/write-eslint';
 
@@ -54,11 +54,11 @@ describe('writeEslintConfig', () => {
       expect(body).toContain('"max-lines"');
       expect(body).toContain('module-a, module-b');
       // Generated config must register the forge plugin so that
-      // downstream ESLint can resolve @forge/forge/* rule ids.
+      // downstream ESLint can resolve @forge-kit-dev/forge/* rule ids.
       expect(body).toContain(
-        "import forgePlugin from '@forge/eslint-plugin-forge';"
+        "import forgePlugin from '@forge-kit-dev/eslint-plugin-forge';"
       );
-      expect(body).toContain("'@forge/forge': forgePlugin");
+      expect(body).toContain("'@forge-kit-dev/forge': forgePlugin");
     });
   });
 
@@ -70,7 +70,7 @@ describe('writeEslintConfig', () => {
         modules: [empty],
       });
       const body = await readFile(result.filePath, 'utf8');
-      expect(body).not.toContain('@forge/eslint-plugin-forge');
+      expect(body).not.toContain('@forge-kit-dev/eslint-plugin-forge');
       expect(body).toContain('export default []');
     });
   });

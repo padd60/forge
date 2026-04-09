@@ -1,5 +1,5 @@
 {
-  "name": "@forge/schemas",
+  "name": "@forge-kit-dev/schemas",
   "version": "0.1.0",
   "description": "Zod schemas for forge — Spec, Handoff, Rubric, ModuleManifest.",
   "license": "MIT",

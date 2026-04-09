@@ -13,14 +13,14 @@
 
 ```bash
 cd my-next-app
-npx @forge/cli init .
+npx @forge-kit-dev/cli init .
 ```
 
 The wizard asks which modules to activate and which enforcement level to use. For a quick start, pick **FSD + Clean Code** with **hybrid** enforcement:
 
 ```bash
 # Non-interactive shortcut
-npx @forge/cli init . --modules fsd,clean-code --enforcement hybrid
+npx @forge-kit-dev/cli init . --modules fsd,clean-code --enforcement hybrid
 ```
 
 ---
@@ -83,9 +83,9 @@ This is useful when you want to edit the spec, inspect a sprint's diff, or under
 
 ## Troubleshooting
 
-**ESLint: "Definition for rule '@forge/forge/...' was not found"**
-- Make sure `@forge/eslint-plugin-forge` is installed as a devDependency.
-- Verify the generated `eslint.config.js` contains `import forgePlugin from '@forge/eslint-plugin-forge'`.
+**ESLint: "Definition for rule '@forge-kit-dev/forge/...' was not found"**
+- Make sure `@forge-kit-dev/eslint-plugin-forge` is installed as a devDependency.
+- Verify the generated `eslint.config.js` contains `import forgePlugin from '@forge-kit-dev/eslint-plugin-forge'`.
 
 **Husky hook not running on commit**
 - Check that `.husky/pre-commit` exists and is executable (`chmod +x .husky/pre-commit`).

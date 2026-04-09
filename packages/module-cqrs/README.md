@@ -1,6 +1,6 @@
-# @forge/module-cqrs
+# @forge-kit-dev/module-cqrs
 
-CQRS as an opt-in module. Precedence **30**. Depends on `@forge/module-fsd` because the enforcement mapping relies on FSD's `entities/` and `features/` layers being real folders.
+CQRS as an opt-in module. Precedence **30**. Depends on `@forge-kit-dev/module-fsd` because the enforcement mapping relies on FSD's `entities/` and `features/` layers being real folders.
 
 ## The forge mapping (one sentence)
 
@@ -10,7 +10,7 @@ CQRS as an opt-in module. Precedence **30**. Depends on `@forge/module-fsd` beca
 
 | Rule | What it enforces |
 |---|---|
-| `@forge/forge/cqrs-layer-role` | Every exported type under `src/entities/**` has `readonly` on every property, and no exported function in `entities/` has a command-shaped name (`create*`, `update*`, `delete*`, `submit*`, `save*`, `remove*`, `add*`, `reset*`, `patch*`). |
+| `@forge-kit-dev/forge/cqrs-layer-role` | Every exported type under `src/entities/**` has `readonly` on every property, and no exported function in `entities/` has a command-shaped name (`create*`, `update*`, `delete*`, `submit*`, `save*`, `remove*`, `add*`, `reset*`, `patch*`). |
 
 The rule fires on the **entities side** because that is where violations are cheapest to detect. The symmetric "commands must be in features/" is already implicit: if a command-named function exists in `shared/` or `widgets/`, FSD's own layer rules will flag it as a boundary violation.
 

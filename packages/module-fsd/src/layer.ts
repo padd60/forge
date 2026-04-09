@@ -1,5 +1,5 @@
 /**
- * The canonical FSD layer helpers live in `@forge/eslint-plugin-forge`
+ * The canonical FSD layer helpers live in `@forge-kit-dev/eslint-plugin-forge`
  * so the ESLint rule can use them without reaching into a module
  * package. module-fsd re-exports them here so its own users (tests,
  * skills, rubrics) can import from a single place without needing to
@@ -12,9 +12,9 @@ export {
   isFsdLayer,
   isUpwardImport,
   layerOrder,
-} from '@forge/eslint-plugin-forge/layer';
+} from '@forge-kit-dev/eslint-plugin-forge/layer';
 export type {
   FsdLayer,
   SliceLocation,
   DetectOptions,
-} from '@forge/eslint-plugin-forge/layer';
+} from '@forge-kit-dev/eslint-plugin-forge/layer';

@@ -1,5 +1,5 @@
 /**
- * @forge/plugin-claude is an asset-only package: its payload lives
+ * @forge-kit-dev/plugin-claude is an asset-only package: its payload lives
  * under `.claude-plugin/` as JSON and Markdown files the Claude Code
  * host reads directly. This TypeScript entry exists so `pnpm` and
  * Turborepo treat it as a first-class workspace member (for typecheck

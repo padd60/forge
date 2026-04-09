@@ -1,4 +1,4 @@
-# @forge/module-ddd
+# @forge-kit-dev/module-ddd
 
 Domain-Driven Design as a forge module. Precedence **40** — weaker than Clean Code (10) and FSD (20). DDD is about language and shape, not about runtime checks, so most of this module's enforcement is advisory rather than mechanical.
 
@@ -6,7 +6,7 @@ Domain-Driven Design as a forge module. Precedence **40** — weaker than Clean 
 
 | Rule | What it does |
 |---|---|
-| `@forge/forge/ddd-entity-id` | Every type declared under `src/entities/**` (or explicitly marked with a `@entity` JSDoc tag) must include an `id` field. |
+| `@forge-kit-dev/forge/ddd-entity-id` | Every type declared under `src/entities/**` (or explicitly marked with a `@entity` JSDoc tag) must include an `id` field. |
 
 Only one mechanical rule lives here because every other DDD concept depends on reading intent. Forcing them at the lint level produces more noise than signal.
 

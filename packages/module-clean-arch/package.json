@@ -1,5 +1,5 @@
 {
-  "name": "@forge/module-clean-arch",
+  "name": "@forge-kit-dev/module-clean-arch",
   "version": "0.1.0",
   "description": "Clean Architecture module for forge. Enforces framework-free domain, use cases, and dependency inversion.",
   "license": "MIT",
@@ -24,9 +24,9 @@
     "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
-    "@forge/core": "workspace:*",
-    "@forge/eslint-plugin-forge": "workspace:*",
-    "@forge/schemas": "workspace:*"
+    "@forge-kit-dev/core": "workspace:*",
+    "@forge-kit-dev/eslint-plugin-forge": "workspace:*",
+    "@forge-kit-dev/schemas": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",

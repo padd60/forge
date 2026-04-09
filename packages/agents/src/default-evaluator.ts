@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { EvalReportSchema, type EvalReport } from '@forge/schemas';
+import { EvalReportSchema, type EvalReport } from '@forge-kit-dev/schemas';
 
 import type { Evaluator, EvaluatorInput } from './evaluator.js';
 import type { AgentRuntime, SpawnRequest } from './runtime.js';

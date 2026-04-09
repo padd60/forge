@@ -6,21 +6,21 @@ Checked 2026-04-10:
 
 | Package | Status | Notes |
 |---|---|---|
-| `@forge/cli` | **TAKEN** by Atlassian (v12.17.0, 723 versions) | Must rename before publishing. Alternatives: `@forge-fe/cli`, `@forgex/cli`, `forge-harness` |
-| `@forge/core` | Available (404) | |
-| `@forge/schemas` | Available (404) | |
-| `@forge/agents` | Available (404) | |
-| `@forge/eslint-plugin-forge` | Available (404) | |
-| `@forge/module-fsd` | Available (404) | |
-| `@forge/module-clean-code` | Available (404) | |
-| `@forge/module-ddd` | Available (404) | |
-| `@forge/module-clean-arch` | Available (404) | |
-| `@forge/module-cqrs` | Available (404) | |
-| `@forge/plugin-claude` | Available (404) | |
+| `@forge-kit-dev/cli` | **TAKEN** by Atlassian (v12.17.0, 723 versions) | Must rename before publishing. Alternatives: `@forge-fe/cli`, `@forgex/cli`, `forge-harness` |
+| `@forge-kit-dev/core` | Available (404) | |
+| `@forge-kit-dev/schemas` | Available (404) | |
+| `@forge-kit-dev/agents` | Available (404) | |
+| `@forge-kit-dev/eslint-plugin-forge` | Available (404) | |
+| `@forge-kit-dev/module-fsd` | Available (404) | |
+| `@forge-kit-dev/module-clean-code` | Available (404) | |
+| `@forge-kit-dev/module-ddd` | Available (404) | |
+| `@forge-kit-dev/module-clean-arch` | Available (404) | |
+| `@forge-kit-dev/module-cqrs` | Available (404) | |
+| `@forge-kit-dev/plugin-claude` | Available (404) | |
 
-**Action required before publishing:** Rename `@forge/cli` to avoid the Atlassian collision. The `@forge` npm scope is owned by Atlassian for their Forge platform. Options:
+**Action required before publishing:** Rename `@forge-kit-dev/cli` to avoid the Atlassian collision. The `@forge` npm scope is owned by Atlassian for their Forge platform. Options:
 
-1. **Register `@forgex` scope** — rename `@forge/cli` → `@forgex/cli` and keep all other packages under `@forge/*` (they're unclaimed). Pros: minimal blast radius (only bin name changes). Cons: inconsistent scoping.
+1. **Register `@forgex` scope** — rename `@forge-kit-dev/cli` → `@forgex/cli` and keep all other packages under `@forge-kit-dev/*` (they're unclaimed). Pros: minimal blast radius (only bin name changes). Cons: inconsistent scoping.
 2. **Register `@forge-fe` scope** — rename all 11 packages. Pros: consistent. Cons: large rename PR.
 3. **Unscoped `forge-cli`** — use `forge-cli` without a scope for the bin entry. Pros: short command (`npx forge-cli init`). Cons: no scope protection.
 
@@ -52,7 +52,7 @@ pnpm release
 
 ### npm 2FA
 
-All `@forge/*` packages should require 2FA for publishing. Configure via:
+All `@forge-kit-dev/*` packages should require 2FA for publishing. Configure via:
 
 ```bash
 npm profile enable-2fa auth-and-writes
@@ -62,13 +62,13 @@ npm profile enable-2fa auth-and-writes
 
 ## Lockstep v0.1 strategy
 
-`.changeset/config.json` uses `"fixed": [["@forge/*"]]` — all 11 publishable packages share the same version number and are released together. This is appropriate for v0.1 because:
+`.changeset/config.json` uses `"fixed": [["@forge-kit-dev/*"]]` — all 11 publishable packages share the same version number and are released together. This is appropriate for v0.1 because:
 
 - Users consume 3-5 packages as a set (cli + core + modules)
 - Internal APIs are still unstable; version divergence would be confusing
 - There are no external consumers depending on a specific package version
 
-When to split: once the internal APIs stabilize (v0.3+) and external plugins start depending on specific `@forge/core` versions, switch from `fixed` to `linked` grouping.
+When to split: once the internal APIs stabilize (v0.3+) and external plugins start depending on specific `@forge-kit-dev/core` versions, switch from `fixed` to `linked` grouping.
 
 ---
 
@@ -126,7 +126,7 @@ pnpm -r build
 pnpm turbo run test --force
 pnpm -r typecheck
 pnpm seed:examples && git diff --exit-code
-pnpm --filter @forge/plugin-claude sync-skills && git diff --exit-code packages/plugin-claude/.claude-plugin/skills/
+pnpm --filter @forge-kit-dev/plugin-claude sync-skills && git diff --exit-code packages/plugin-claude/.claude-plugin/skills/
 for d in apps/playground examples/nextjs-fsd-minimal examples/nextjs-fsd-ddd examples/nextjs-cqrs; do
   (cd "$d" && pnpm exec forge check) || exit 1
 done

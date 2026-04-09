@@ -1,4 +1,4 @@
-import type { EslintConfigFragment } from '@forge/core';
+import type { EslintConfigFragment } from '@forge-kit-dev/core';
 
 /**
  * Mechanical rules for the CQRS mapping (entities = read model,
@@ -13,9 +13,9 @@ import type { EslintConfigFragment } from '@forge/core';
  */
 export function cqrsEslintConfig(): EslintConfigFragment {
   return {
-    plugins: ['@forge/forge'],
+    plugins: ['@forge-kit-dev/forge'],
     rules: {
-      '@forge/forge/cqrs-layer-role': 'error',
+      '@forge-kit-dev/forge/cqrs-layer-role': 'error',
     },
   };
 }

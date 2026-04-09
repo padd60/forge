@@ -1,11 +1,11 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-import type { EnforcementLevel } from '@forge/schemas';
+import type { EnforcementLevel } from '@forge-kit-dev/schemas';
 
 /**
  * The on-disk shape of `.forge/config.json`. A strict subset of
- * `ForgeConfig` from `@forge/core` with paths inferred at load time so
+ * `ForgeConfig` from `@forge-kit-dev/core` with paths inferred at load time so
  * the file itself stays location-independent (users should be able to
  * rename the repo without editing config).
  *

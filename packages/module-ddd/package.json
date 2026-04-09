@@ -1,5 +1,5 @@
 {
-  "name": "@forge/module-ddd",
+  "name": "@forge-kit-dev/module-ddd",
   "version": "0.1.0",
   "description": "Domain-Driven Design module for forge. Enforces entity identity, bounded context isolation, and ubiquitous language.",
   "license": "MIT",
@@ -24,9 +24,9 @@
     "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
-    "@forge/core": "workspace:*",
-    "@forge/eslint-plugin-forge": "workspace:*",
-    "@forge/schemas": "workspace:*"
+    "@forge-kit-dev/core": "workspace:*",
+    "@forge-kit-dev/eslint-plugin-forge": "workspace:*",
+    "@forge-kit-dev/schemas": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",

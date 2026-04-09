@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import moduleCleanCode from '../index';
 
-describe('@forge/module-clean-code', () => {
+describe('@forge-kit-dev/module-clean-code', () => {
   it('exposes a manifest with precedence 10 (stricter than FSD)', () => {
     expect(moduleCleanCode.manifest.name).toBe('module-clean-code');
     expect(moduleCleanCode.manifest.precedence).toBe(10);
@@ -12,11 +12,11 @@ describe('@forge/module-clean-code', () => {
     const cfg = moduleCleanCode.eslintConfig?.();
     expect(cfg).toBeDefined();
     const rules = (cfg as { rules: Record<string, unknown> }).rules;
-    expect(rules['@forge/forge/component-max-lines']).toEqual([
+    expect(rules['@forge-kit-dev/forge/component-max-lines']).toEqual([
       'error',
       { max: 50 },
     ]);
-    expect(rules['@forge/forge/no-boolean-flag-arg']).toBe('error');
+    expect(rules['@forge-kit-dev/forge/no-boolean-flag-arg']).toBe('error');
     expect(rules['max-params']).toEqual(['error', 3]);
   });
 

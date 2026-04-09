@@ -1,4 +1,4 @@
-# @forge/playground
+# @forge-kit-dev/playground
 
 Kitchen-sink Next.js 14 demo that activates **all five forge modules**
 (FSD, Clean Code, DDD, Clean Architecture, CQRS). Use it as a
@@ -8,8 +8,8 @@ end-to-end target of changes to any module.
 ```bash
 # From the monorepo root
 pnpm seed:examples                            # regenerate .forge/ + eslint.config.js
-pnpm --filter @forge/playground forge:check   # run the mechanical gate
-pnpm --filter @forge/playground dev           # boot the sample app on localhost:3000
+pnpm --filter @forge-kit-dev/playground forge:check   # run the mechanical gate
+pnpm --filter @forge-kit-dev/playground dev           # boot the sample app on localhost:3000
 ```
 
 ## What this demonstrates

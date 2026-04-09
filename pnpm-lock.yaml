@@ -11,7 +11,7 @@ importers:
       '@changesets/cli':
         specifier: ^2.27.9
         version: 2.30.0(@types/node@20.19.39)
-      '@forge/cli':
+      '@forge-kit-dev/cli':
         specifier: workspace:*
         version: link:apps/cli
       '@types/node':
@@ -35,25 +35,25 @@ importers:
       '@clack/prompts':
         specifier: ^0.7.0
         version: 0.7.0
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@forge/module-clean-arch':
+      '@forge-kit-dev/module-clean-arch':
         specifier: workspace:*
         version: link:../../packages/module-clean-arch
-      '@forge/module-clean-code':
+      '@forge-kit-dev/module-clean-code':
         specifier: workspace:*
         version: link:../../packages/module-clean-code
-      '@forge/module-cqrs':
+      '@forge-kit-dev/module-cqrs':
         specifier: workspace:*
         version: link:../../packages/module-cqrs
-      '@forge/module-ddd':
+      '@forge-kit-dev/module-ddd':
         specifier: workspace:*
         version: link:../../packages/module-ddd
-      '@forge/module-fsd':
+      '@forge-kit-dev/module-fsd':
         specifier: workspace:*
         version: link:../../packages/module-fsd
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
       commander:
@@ -66,7 +66,7 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
     devDependencies:
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-forge
       '@types/node':
@@ -100,10 +100,10 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@forge/cli':
+      '@forge-kit-dev/cli':
         specifier: workspace:*
         version: link:../cli
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-forge
       '@types/node':
@@ -137,10 +137,10 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@forge/cli':
+      '@forge-kit-dev/cli':
         specifier: workspace:*
         version: link:../../apps/cli
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-forge
       '@types/node':
@@ -174,10 +174,10 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@forge/cli':
+      '@forge-kit-dev/cli':
         specifier: workspace:*
         version: link:../../apps/cli
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-forge
       '@types/node':
@@ -211,10 +211,10 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@forge/cli':
+      '@forge-kit-dev/cli':
         specifier: workspace:*
         version: link:../../apps/cli
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../../packages/eslint-plugin-forge
       '@types/node':
@@ -238,7 +238,7 @@ importers:
 
   packages/agents:
     dependencies:
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -257,10 +257,10 @@ importers:
 
   packages/core:
     dependencies:
-      '@forge/agents':
+      '@forge-kit-dev/agents':
         specifier: workspace:*
         version: link:../agents
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
       nanoid:
@@ -310,13 +310,13 @@ importers:
 
   packages/module-clean-arch:
     dependencies:
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../core
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../eslint-plugin-forge
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -335,13 +335,13 @@ importers:
 
   packages/module-clean-code:
     dependencies:
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../core
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../eslint-plugin-forge
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -360,16 +360,16 @@ importers:
 
   packages/module-cqrs:
     dependencies:
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../core
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../eslint-plugin-forge
-      '@forge/module-fsd':
+      '@forge-kit-dev/module-fsd':
         specifier: workspace:*
         version: link:../module-fsd
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -388,13 +388,13 @@ importers:
 
   packages/module-ddd:
     dependencies:
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../core
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../eslint-plugin-forge
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -413,13 +413,13 @@ importers:
 
   packages/module-fsd:
     dependencies:
-      '@forge/core':
+      '@forge-kit-dev/core':
         specifier: workspace:*
         version: link:../core
-      '@forge/eslint-plugin-forge':
+      '@forge-kit-dev/eslint-plugin-forge':
         specifier: workspace:*
         version: link:../eslint-plugin-forge
-      '@forge/schemas':
+      '@forge-kit-dev/schemas':
         specifier: workspace:*
         version: link:../schemas
     devDependencies:
@@ -438,19 +438,19 @@ importers:
 
   packages/plugin-claude:
     dependencies:
-      '@forge/module-clean-arch':
+      '@forge-kit-dev/module-clean-arch':
         specifier: workspace:*
         version: link:../module-clean-arch
-      '@forge/module-clean-code':
+      '@forge-kit-dev/module-clean-code':
         specifier: workspace:*
         version: link:../module-clean-code
-      '@forge/module-cqrs':
+      '@forge-kit-dev/module-cqrs':
         specifier: workspace:*
         version: link:../module-cqrs
-      '@forge/module-ddd':
+      '@forge-kit-dev/module-ddd':
         specifier: workspace:*
         version: link:../module-ddd
-      '@forge/module-fsd':
+      '@forge-kit-dev/module-fsd':
         specifier: workspace:*
         version: link:../module-fsd
     devDependencies:

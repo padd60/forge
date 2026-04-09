@@ -1,7 +1,7 @@
 /**
- * Order aggregate — required by `@forge/forge/ddd-entity-id` to
+ * Order aggregate — required by `@forge-kit-dev/forge/ddd-entity-id` to
  * carry an `id` field, and required by
- * `@forge/forge/clean-arch-domain-isolation` to contain no
+ * `@forge-kit-dev/forge/clean-arch-domain-isolation` to contain no
  * framework imports. This file is the concrete invariant the
  * example is demonstrating.
  *
@@ -12,7 +12,7 @@
  * objects out of entities/ altogether; the example keeps them
  * together to show what the escape hatch looks like.
  */
-// eslint-disable-next-line @forge/forge/ddd-entity-id
+// eslint-disable-next-line @forge-kit-dev/forge/ddd-entity-id
 export interface OrderLine {
   readonly sku: string;
   readonly quantity: number;

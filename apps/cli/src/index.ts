@@ -1,5 +1,5 @@
 /**
- * Public programmatic API surface for @forge/cli.
+ * Public programmatic API surface for @forge-kit-dev/cli.
  *
  * The CLI binary lives in `./cli.ts` (built to `dist/cli.js`); this
  * file carries re-exports that external callers — notably the
@@ -7,7 +7,7 @@
  * integrations — need to drive `forge init` without spawning the
  * bin entry.
  *
- * Keep this file side-effect-free. Importing `@forge/cli` must never
+ * Keep this file side-effect-free. Importing `@forge-kit-dev/cli` must never
  * execute the CLI.
  */
 export { runInit } from './commands/init.js';

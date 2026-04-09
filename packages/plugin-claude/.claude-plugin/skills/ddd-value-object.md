@@ -18,7 +18,7 @@ Ask: *if two instances had the same field values, would we consider them the sam
 
 ## How forge models each
 
-**Entities** are declared under `entities/<noun>/model/` and must include an `id` field (enforced by `@forge/forge/ddd-entity-id`). Changing a field returns the same entity; you don't "make a new user because the email changed".
+**Entities** are declared under `entities/<noun>/model/` and must include an `id` field (enforced by `@forge-kit-dev/forge/ddd-entity-id`). Changing a field returns the same entity; you don't "make a new user because the email changed".
 
 **Value objects** live as plain TypeScript types with `readonly` properties. Changing a field returns a new value object:
 

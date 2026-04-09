@@ -1,8 +1,8 @@
-import type { EnforcementLevel } from '@forge/schemas';
+import type { EnforcementLevel } from '@forge-kit-dev/schemas';
 import type { Module } from './module.js';
 
 /**
- * What `@forge/cli init` writes to `.forge/config.json` and what
+ * What `@forge-kit-dev/cli init` writes to `.forge/config.json` and what
  * `Harness` expects at runtime.
  *
  * Deliberately separated from `ModuleManifest`: the manifest describes

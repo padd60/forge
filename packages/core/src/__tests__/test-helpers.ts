@@ -2,7 +2,7 @@ import type {
   Evaluator,
   Generator,
   Planner,
-} from '@forge/agents';
+} from '@forge-kit-dev/agents';
 import { defineModule, type Module } from '../module';
 import type { ForgeConfig } from '../config';
 import type { HarnessAgents } from '../harness';

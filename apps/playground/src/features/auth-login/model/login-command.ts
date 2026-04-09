@@ -3,7 +3,7 @@ import type { User } from '@/entities/user';
 /**
  * Write-side command for auth-login. In CQRS terms this is the
  * command — entities/user exposes the read-model `User` type; the
- * command lives in features/ where `@forge/forge/cqrs-layer-role`
+ * command lives in features/ where `@forge-kit-dev/forge/cqrs-layer-role`
  * expects mutations to live.
  *
  * The implementation is stubbed because the playground doesn't talk

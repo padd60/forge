@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import moduleDdd from '../index';
 
-describe('@forge/module-ddd', () => {
+describe('@forge-kit-dev/module-ddd', () => {
   it('exposes a manifest with precedence 40 (weaker than FSD)', () => {
     expect(moduleDdd.manifest.name).toBe('module-ddd');
     expect(moduleDdd.manifest.precedence).toBe(40);
@@ -11,7 +11,7 @@ describe('@forge/module-ddd', () => {
     const cfg = moduleDdd.eslintConfig?.();
     expect(cfg).toBeDefined();
     const rules = (cfg as { rules: Record<string, unknown> }).rules;
-    expect(rules['@forge/forge/ddd-entity-id']).toBe('error');
+    expect(rules['@forge-kit-dev/forge/ddd-entity-id']).toBe('error');
   });
 
   it('loads three skills', () => {

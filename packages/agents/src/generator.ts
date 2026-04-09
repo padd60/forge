@@ -1,4 +1,4 @@
-import type { EvalReport, Spec } from '@forge/schemas';
+import type { EvalReport, Spec } from '@forge-kit-dev/schemas';
 import type { AgentRuntime } from './runtime.js';
 
 export interface GeneratorInput {

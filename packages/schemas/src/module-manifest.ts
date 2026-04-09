@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 /**
  * Declared capabilities of a forge module. Mirrors the runtime `Module`
- * interface in `@forge/core` but stays JSON-serializable so the CLI can
+ * interface in `@forge-kit-dev/core` but stays JSON-serializable so the CLI can
  * display module info without loading the package.
  *
  * `precedence` controls conflict resolution between overlapping rules.

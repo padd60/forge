@@ -1,4 +1,4 @@
-import type { Rubric } from '@forge/schemas';
+import type { Rubric } from '@forge-kit-dev/schemas';
 
 export function cqrsRubrics(): readonly Rubric[] {
   return [

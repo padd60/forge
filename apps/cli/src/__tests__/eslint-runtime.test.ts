@@ -19,7 +19,7 @@ import { BUILTIN_REGISTRY } from '../registry';
  *
  * Implementation note: the tmpdir must live INSIDE `apps/cli/` so
  * that Node's ESM resolver, walking up from the generated
- * `eslint.config.js`, hits `apps/cli/node_modules/@forge/eslint-plugin-forge`
+ * `eslint.config.js`, hits `apps/cli/node_modules/@forge-kit-dev/eslint-plugin-forge`
  * (pnpm symlink to the built workspace package). Placing the tmpdir
  * under `os.tmpdir()` would put it outside the workspace and make the
  * plugin import unresolvable.
@@ -38,7 +38,7 @@ describe('writeEslintConfig → real ESLint runtime', () => {
     await rm(tmpDir, { recursive: true, force: true });
   });
 
-  it('reports @forge/forge/component-max-lines on an over-sized component', async () => {
+  it('reports @forge-kit-dev/forge/component-max-lines on an over-sized component', async () => {
     await writeEslintConfig({
       repoRoot: tmpDir,
       modules: [BUILTIN_REGISTRY['module-clean-code']],
@@ -57,10 +57,10 @@ describe('writeEslintConfig → real ESLint runtime', () => {
       throw new Error('expected at least one ESLint result');
     }
     const ruleIds = firstResult.messages.map((m) => m.ruleId);
-    expect(ruleIds).toContain('@forge/forge/component-max-lines');
+    expect(ruleIds).toContain('@forge-kit-dev/forge/component-max-lines');
   });
 
-  it('reports @forge/forge/fsd-slice-boundary on a cross-slice deep import', async () => {
+  it('reports @forge-kit-dev/forge/fsd-slice-boundary on a cross-slice deep import', async () => {
     await writeEslintConfig({
       repoRoot: tmpDir,
       modules: [BUILTIN_REGISTRY['module-fsd']],
@@ -83,7 +83,7 @@ describe('writeEslintConfig → real ESLint runtime', () => {
       throw new Error('expected at least one ESLint result');
     }
     const ruleIds = firstResult.messages.map((m) => m.ruleId);
-    expect(ruleIds).toContain('@forge/forge/fsd-slice-boundary');
+    expect(ruleIds).toContain('@forge-kit-dev/forge/fsd-slice-boundary');
   });
 });
 

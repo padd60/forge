@@ -1,4 +1,4 @@
-# @forge/module-fsd
+# @forge-kit-dev/module-fsd
 
 Feature-Sliced Design module for forge. Ships the three-layer contribution every forge module can make:
 
@@ -32,7 +32,7 @@ module-fsd follows the official [FSD + Next.js guide](https://feature-sliced.des
 
 | Rule | Kind | Enforcement |
 |---|---|---|
-| `@forge/forge/fsd-slice-boundary` | Mechanical | Block. Covers upward imports, cross-slice references, and deep (non-public-API) imports in one pass. |
+| `@forge-kit-dev/forge/fsd-slice-boundary` | Mechanical | Block. Covers upward imports, cross-slice references, and deep (non-public-API) imports in one pass. |
 
 The three sub-checks live in one rule so a single walk over the AST handles every boundary concern — this keeps `forge check` fast in pre-commit.
 
@@ -48,4 +48,4 @@ The three sub-checks live in one rule so a single walk over the AST handles ever
 - `r-fsd-naming` (feature verbs, entity nouns)
 - `r-fsd-cohesion` (shared purity, widgets-compose)
 
-Every criterion scores on 0 / 5 / 10 — there is no 7. The constraint is inherited from `RubricScoreSchema` in `@forge/schemas`, which refuses middle-ground scores so the Evaluator has to pick a side.
+Every criterion scores on 0 / 5 / 10 — there is no 7. The constraint is inherited from `RubricScoreSchema` in `@forge-kit-dev/schemas`, which refuses middle-ground scores so the Evaluator has to pick a side.

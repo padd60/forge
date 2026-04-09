@@ -24,7 +24,7 @@ you want to review intermediate artifacts before proceeding.
 ### Phase 1 — Plan (identical to /forge-plan)
 
 1. **Read `.forge/config.json`.** If missing, stop and tell the user to
-   run `npx @forge/cli init` first. Grab `activeModules`, `enforcement`,
+   run `npx @forge-kit-dev/cli init` first. Grab `activeModules`, `enforcement`,
    `evaluator.minScore`, and `evaluator.maxIterations`.
 
 2. **Mint a `runId`** (ISO timestamp + nanoid suffix). Create:

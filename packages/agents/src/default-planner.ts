@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 
-import { SpecSchema, type Spec } from '@forge/schemas';
+import { SpecSchema, type Spec } from '@forge-kit-dev/schemas';
 
 import { PlannerValidationError } from './errors.js';
 import type { Planner, PlannerInput } from './planner.js';

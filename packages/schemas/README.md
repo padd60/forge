@@ -1,4 +1,4 @@
-# @forge/schemas
+# @forge-kit-dev/schemas
 
 Zod schemas that define the file-based contracts shared by every agent and module in forge.
 

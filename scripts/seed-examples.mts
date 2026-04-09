@@ -20,7 +20,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { runInit, type BuiltinModule } from '@forge/cli';
+import { runInit, type BuiltinModule } from '@forge-kit-dev/cli';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, '..');

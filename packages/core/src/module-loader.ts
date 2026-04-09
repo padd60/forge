@@ -12,7 +12,7 @@ export interface LoadResult {
  *
  * The loader is pure: it receives all candidate modules through
  * `registry` and never touches disk or `require`. Concrete registration
- * happens in `@forge/cli`, which imports the module packages the user
+ * happens in `@forge-kit-dev/cli`, which imports the module packages the user
  * asked for and hands them to `loadModules`.
  */
 export function loadModules(

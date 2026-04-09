@@ -1,5 +1,5 @@
 {
-  "name": "@forge/plugin-claude",
+  "name": "@forge-kit-dev/plugin-claude",
   "version": "0.1.0",
   "description": "Claude Code plugin bundle — slash commands, skills, agents for forge.",
   "license": "MIT",
@@ -28,11 +28,11 @@
     "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
-    "@forge/module-clean-arch": "workspace:*",
-    "@forge/module-clean-code": "workspace:*",
-    "@forge/module-cqrs": "workspace:*",
-    "@forge/module-ddd": "workspace:*",
-    "@forge/module-fsd": "workspace:*"
+    "@forge-kit-dev/module-clean-arch": "workspace:*",
+    "@forge-kit-dev/module-clean-code": "workspace:*",
+    "@forge-kit-dev/module-cqrs": "workspace:*",
+    "@forge-kit-dev/module-ddd": "workspace:*",
+    "@forge-kit-dev/module-fsd": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",

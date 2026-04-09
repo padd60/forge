@@ -1,6 +1,6 @@
 /**
  * FSD layer detection used by both the `fsd-slice-boundary` ESLint rule
- * and `@forge/module-fsd`. The canonical copy lives here because the
+ * and `@forge-kit-dev/module-fsd`. The canonical copy lives here because the
  * rule needs it and rules must not reach into module packages; the
  * module re-exports these helpers through its own `./layer` facade.
  *

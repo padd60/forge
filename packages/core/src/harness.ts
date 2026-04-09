@@ -1,5 +1,5 @@
-import type { Evaluator, Generator, Planner } from '@forge/agents';
-import type { EvalReport, RunRequest } from '@forge/schemas';
+import type { Evaluator, Generator, Planner } from '@forge-kit-dev/agents';
+import type { EvalReport, RunRequest } from '@forge-kit-dev/schemas';
 
 import type { HarnessOptions } from './config.js';
 import {
@@ -59,7 +59,7 @@ export class Harness {
    * Evaluator → (fix-loop) pipeline, persisting every transition under
    * `.forge/runs/<runId>/`. The caller supplies the runtime that
    * actually hosts sub-agent spawning — tests use `MockRuntime` from
-   * `@forge/agents`, and slash commands in `@forge/plugin-claude` will
+   * `@forge-kit-dev/agents`, and slash commands in `@forge-kit-dev/plugin-claude` will
    * supply a Claude Code adapter in v0.2.
    */
   async run(
@@ -68,7 +68,7 @@ export class Harness {
   ): Promise<EvalReport> {
     if (!deps?.runtime) {
       throw new Error(
-        'forge: Harness.run() requires deps.runtime (see @forge/agents MockRuntime for tests)'
+        'forge: Harness.run() requires deps.runtime (see @forge-kit-dev/agents MockRuntime for tests)'
       );
     }
     return runPipeline(request, this.#opts, this.#agents, deps);

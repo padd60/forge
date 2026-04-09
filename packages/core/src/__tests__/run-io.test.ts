@@ -9,7 +9,7 @@ import type {
   Handoff,
   RunRequest,
   Spec,
-} from '@forge/schemas';
+} from '@forge-kit-dev/schemas';
 
 import { computeRunPaths, evalIterationDir, sprintDir } from '../paths';
 import type { RunPaths } from '../paths';

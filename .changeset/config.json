@@ -2,15 +2,15 @@
   "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [["@forge/*"]],
+  "fixed": [["@forge-kit-dev/*"]],
   "linked": [],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
   "ignore": [
-    "@forge/playground",
-    "@forge/example-nextjs-fsd-minimal",
-    "@forge/example-nextjs-fsd-ddd",
-    "@forge/example-nextjs-cqrs"
+    "@forge-kit-dev/playground",
+    "@forge-kit-dev/example-nextjs-fsd-minimal",
+    "@forge-kit-dev/example-nextjs-fsd-ddd",
+    "@forge-kit-dev/example-nextjs-cqrs"
   ]
 }

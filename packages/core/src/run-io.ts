@@ -10,7 +10,7 @@ import {
   type Handoff,
   type RunRequest,
   type Spec,
-} from '@forge/schemas';
+} from '@forge-kit-dev/schemas';
 
 import type { RunPaths } from './paths.js';
 

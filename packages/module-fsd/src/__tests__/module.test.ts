@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import moduleFsd from '../index';
 
-describe('@forge/module-fsd', () => {
+describe('@forge-kit-dev/module-fsd', () => {
   it('exposes a manifest with sensible defaults', () => {
     expect(moduleFsd.manifest.name).toBe('module-fsd');
     expect(moduleFsd.manifest.precedence).toBe(20);
@@ -17,7 +17,7 @@ describe('@forge/module-fsd', () => {
     const cfg = moduleFsd.eslintConfig?.();
     expect(cfg).toBeDefined();
     const rules = (cfg as { rules: Record<string, unknown> }).rules;
-    expect(rules['@forge/forge/fsd-slice-boundary']).toBe('error');
+    expect(rules['@forge-kit-dev/forge/fsd-slice-boundary']).toBe('error');
   });
 
   it('loads three skills from the skills directory', () => {

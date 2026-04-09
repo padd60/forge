@@ -1,4 +1,4 @@
-# @forge/module-clean-arch
+# @forge-kit-dev/module-clean-arch
 
 Clean Architecture principles distilled into what actually applies to a React/Next.js app. Precedence **50** — the weakest of the v0.1 modules, because Clean Architecture is a target shape, not a line-by-line rulebook.
 
@@ -6,7 +6,7 @@ Clean Architecture principles distilled into what actually applies to a React/Ne
 
 | Rule | What it does |
 |---|---|
-| `@forge/forge/clean-arch-domain-isolation` | Forbids imports of framework packages (`react`, `react-dom`, `next`, `next/*`) from files that live inside a domain folder (`src/domain/**` or `src/entities/**` by default). |
+| `@forge-kit-dev/forge/clean-arch-domain-isolation` | Forbids imports of framework packages (`react`, `react-dom`, `next`, `next/*`) from files that live inside a domain folder (`src/domain/**` or `src/entities/**` by default). |
 
 This is the single hard rule because framework leakage into the domain is both easy to detect (path + import specifier) and genuinely harmful: once `react` is in the domain, you cannot test your business logic without a renderer.
 

@@ -8,7 +8,7 @@ import {
   SpecSchema,
 } from '../index';
 
-describe('@forge/schemas — smoke', () => {
+describe('@forge-kit-dev/schemas — smoke', () => {
   it('parses a minimal valid Spec', () => {
     const parsed = SpecSchema.parse({
       runId: 'run-1',

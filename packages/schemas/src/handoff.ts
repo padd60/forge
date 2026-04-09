@@ -26,7 +26,7 @@ export const HandoffSchema = z.object({
   toInputs: z.record(z.string(), z.string()),
   summary: z.string(),
   /**
-   * Optional budget hint, used by `@forge/core` to decide between
+   * Optional budget hint, used by `@forge-kit-dev/core` to decide between
    * preserving the current context and forcing a context reset.
    * Represented as a 0..1 fraction of the agent's token window.
    */

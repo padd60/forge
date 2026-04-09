@@ -3,7 +3,7 @@ import { EnforcementLevelSchema } from './enforcement.js';
 
 /**
  * Metadata for one P-G-E execution, written at `.forge/runs/<runId>/request.json`.
- * `runId` is produced by `@forge/core` (timestamp + nanoid) and reused
+ * `runId` is produced by `@forge-kit-dev/core` (timestamp + nanoid) and reused
  * as the folder name so runs are sortable by creation time.
  */
 export const RunRequestSchema = z.object({

@@ -1,5 +1,5 @@
 {
-  "name": "@forge/module-cqrs",
+  "name": "@forge-kit-dev/module-cqrs",
   "version": "0.1.0",
   "description": "CQRS mapping module for forge — entities layer is the read model, features layer owns commands.",
   "license": "MIT",
@@ -24,10 +24,10 @@
     "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
-    "@forge/core": "workspace:*",
-    "@forge/eslint-plugin-forge": "workspace:*",
-    "@forge/module-fsd": "workspace:*",
-    "@forge/schemas": "workspace:*"
+    "@forge-kit-dev/core": "workspace:*",
+    "@forge-kit-dev/eslint-plugin-forge": "workspace:*",
+    "@forge-kit-dev/module-fsd": "workspace:*",
+    "@forge-kit-dev/schemas": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",

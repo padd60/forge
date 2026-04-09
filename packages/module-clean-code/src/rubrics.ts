@@ -1,4 +1,4 @@
-import type { Rubric } from '@forge/schemas';
+import type { Rubric } from '@forge-kit-dev/schemas';
 
 /**
  * Clean Code rubrics. The five criteria below are the advisory half

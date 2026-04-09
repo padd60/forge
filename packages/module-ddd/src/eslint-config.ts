@@ -1,4 +1,4 @@
-import type { EslintConfigFragment } from '@forge/core';
+import type { EslintConfigFragment } from '@forge-kit-dev/core';
 
 /**
  * Mechanical rules for the DDD module.
@@ -13,9 +13,9 @@ import type { EslintConfigFragment } from '@forge/core';
  */
 export function dddEslintConfig(): EslintConfigFragment {
   return {
-    plugins: ['@forge/forge'],
+    plugins: ['@forge-kit-dev/forge'],
     rules: {
-      '@forge/forge/ddd-entity-id': 'error',
+      '@forge-kit-dev/forge/ddd-entity-id': 'error',
     },
   };
 }

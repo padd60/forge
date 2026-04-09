@@ -1,4 +1,4 @@
-import type { Rubric } from '@forge/schemas';
+import type { Rubric } from '@forge-kit-dev/schemas';
 
 /**
  * Advisory rubrics for the DDD module. The mechanical side only

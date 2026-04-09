@@ -1,4 +1,4 @@
-import type { Spec } from '@forge/schemas';
+import type { Spec } from '@forge-kit-dev/schemas';
 import type { AgentRuntime } from './runtime.js';
 
 /**
@@ -7,8 +7,8 @@ import type { AgentRuntime } from './runtime.js';
  *
  * The Harness pre-computes absolute file paths (`requestPath`,
  * `specJsonPath`) so the Planner never has to know where
- * `.forge/runs/<runId>/` lives. This keeps `@forge/agents` free of any
- * dependency on `@forge/core`'s path utilities.
+ * `.forge/runs/<runId>/` lives. This keeps `@forge-kit-dev/agents` free of any
+ * dependency on `@forge-kit-dev/core`'s path utilities.
  */
 export interface PlannerInput {
   runId: string;

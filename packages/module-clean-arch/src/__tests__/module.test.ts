@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import moduleCleanArch from '../index';
 
-describe('@forge/module-clean-arch', () => {
+describe('@forge-kit-dev/module-clean-arch', () => {
   it('exposes a manifest with precedence 50 (weakest of the v0.1 modules)', () => {
     expect(moduleCleanArch.manifest.name).toBe('module-clean-arch');
     expect(moduleCleanArch.manifest.precedence).toBe(50);
@@ -11,7 +11,7 @@ describe('@forge/module-clean-arch', () => {
     const cfg = moduleCleanArch.eslintConfig?.();
     expect(cfg).toBeDefined();
     const rules = (cfg as { rules: Record<string, unknown> }).rules;
-    expect(rules['@forge/forge/clean-arch-domain-isolation']).toBe('error');
+    expect(rules['@forge-kit-dev/forge/clean-arch-domain-isolation']).toBe('error');
   });
 
   it('loads two skills', () => {

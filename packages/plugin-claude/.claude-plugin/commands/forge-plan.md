@@ -15,12 +15,12 @@ You (the main Claude Code agent) are the orchestrator for this
 command. You will:
 
 1. **Read `.forge/config.json`**. If it is missing, stop and tell the
-   user to run `npx @forge/cli init` first. Otherwise grab
+   user to run `npx @forge-kit-dev/cli init` first. Otherwise grab
    `activeModules`, `enforcement`, and `evaluator.minScore` for later.
 
 2. **Mint a `runId`**. Format: ISO-8601 timestamp with `:` replaced
    by `-`, plus a 6-character nanoid suffix (use the helpers exported
-   from `@forge/core`'s `paths.ts` if you have it available, otherwise
+   from `@forge-kit-dev/core`'s `paths.ts` if you have it available, otherwise
    synthesize one). Create the directory structure under
    `.forge/runs/<runId>/`:
 
@@ -32,7 +32,7 @@ command. You will:
    ```
 
 3. **Write `request.json`**. Must match `RunRequestSchema` from
-   `@forge/schemas`:
+   `@forge-kit-dev/schemas`:
 
    ```json
    {

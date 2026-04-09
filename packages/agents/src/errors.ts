@@ -1,4 +1,4 @@
-import type { EvalReport } from '@forge/schemas';
+import type { EvalReport } from '@forge-kit-dev/schemas';
 
 /**
  * Thrown by `DefaultPlanner` when the sub-agent's `spec.json` fails

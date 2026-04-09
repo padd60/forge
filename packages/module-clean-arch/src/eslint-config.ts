@@ -1,4 +1,4 @@
-import type { EslintConfigFragment } from '@forge/core';
+import type { EslintConfigFragment } from '@forge-kit-dev/core';
 
 /**
  * Mechanical rules for Clean Architecture on the frontend.
@@ -12,9 +12,9 @@ import type { EslintConfigFragment } from '@forge/core';
  */
 export function cleanArchEslintConfig(): EslintConfigFragment {
   return {
-    plugins: ['@forge/forge'],
+    plugins: ['@forge-kit-dev/forge'],
     rules: {
-      '@forge/forge/clean-arch-domain-isolation': 'error',
+      '@forge-kit-dev/forge/clean-arch-domain-isolation': 'error',
     },
   };
 }

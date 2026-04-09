@@ -12,8 +12,8 @@ import {
   PlannerValidationError,
   RunLimitError,
   type MockFixture,
-} from '@forge/agents';
-import type { EvalReport, RunRequest, Spec } from '@forge/schemas';
+} from '@forge-kit-dev/agents';
+import type { EvalReport, RunRequest, Spec } from '@forge-kit-dev/schemas';
 
 import type { ForgeConfig } from '../config';
 import { Harness } from '../harness';

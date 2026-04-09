@@ -39,7 +39,7 @@ Apply these in order until you are back under 50:
 ## What forge rejects
 
 - 55-line components (even if "it was only five over")
-- `eslint-disable-next-line @forge/forge/component-max-lines` sprinkled to dodge the rule
+- `eslint-disable-next-line @forge-kit-dev/forge/component-max-lines` sprinkled to dodge the rule
 - Splitting a component only to reach 49 while leaving the responsibilities tangled
 
 ## Tie-breakers

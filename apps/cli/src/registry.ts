@@ -1,19 +1,19 @@
-import { moduleCleanArch } from '@forge/module-clean-arch';
-import { moduleCleanCode } from '@forge/module-clean-code';
-import { moduleCqrs } from '@forge/module-cqrs';
-import { moduleDdd } from '@forge/module-ddd';
-import { moduleFsd } from '@forge/module-fsd';
-import type { Module } from '@forge/core';
+import { moduleCleanArch } from '@forge-kit-dev/module-clean-arch';
+import { moduleCleanCode } from '@forge-kit-dev/module-clean-code';
+import { moduleCqrs } from '@forge-kit-dev/module-cqrs';
+import { moduleDdd } from '@forge-kit-dev/module-ddd';
+import { moduleFsd } from '@forge-kit-dev/module-fsd';
+import type { Module } from '@forge-kit-dev/core';
 
 import type { BuiltinModule } from './wizard/dependency-resolver.js';
 
 /**
  * Concrete registry of the v0.1 builtin modules. Everything in this
- * table is a direct import so `@forge/cli` bundles all five modules
+ * table is a direct import so `@forge-kit-dev/cli` bundles all five modules
  * deterministically — no dynamic `require`, no plugin discovery.
  *
  * The indirection exists so `forge init` can hand a plain `Module[]`
- * to `@forge/core`'s `loadModules`/`resolveRuleConflicts` helpers
+ * to `@forge-kit-dev/core`'s `loadModules`/`resolveRuleConflicts` helpers
  * without needing to know how modules are implemented.
  */
 export const BUILTIN_REGISTRY: Readonly<Record<BuiltinModule, Module>> = {

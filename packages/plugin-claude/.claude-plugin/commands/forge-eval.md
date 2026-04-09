@@ -27,7 +27,7 @@ talk yourself into a shortcut.
    - The latest `generator/sprint-0N/diff.patch` (highest N)
    - All active modules' rubrics. Modules ship rubrics in code; for
      v0.1 you can load them by importing
-     `@forge/module-*`'s `rubrics()` function, or by reading the
+     `@forge-kit-dev/module-*`'s `rubrics()` function, or by reading the
      rubric files the host placed under `.claude/skills/`. Copy
      them into a temporary `rubrics/` dir under the iteration so the
      sub-agent sees them as plain files.

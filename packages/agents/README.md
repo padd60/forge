@@ -1,11 +1,11 @@
-# @forge/agents
+# @forge-kit-dev/agents
 
 Interface-only package. It defines the contracts for forge's three agents (Planner / Generator / Evaluator), their toolkits, and the abstract `AgentRuntime` every host environment must implement.
 
 No runtime implementations live here — look in:
 
-- `@forge/core/src/runtime.claude-code.ts` (Claude Code sub-agent runtime)
-- `@forge/core/src/runtime.standalone.ts` (planned v0.2: Anthropic SDK direct)
+- `@forge-kit-dev/core/src/runtime.claude-code.ts` (Claude Code sub-agent runtime)
+- `@forge-kit-dev/core/src/runtime.standalone.ts` (planned v0.2: Anthropic SDK direct)
 
 ## Why so many single-purpose files
 

@@ -1,4 +1,4 @@
-import type { Rubric } from '@forge/schemas';
+import type { Rubric } from '@forge-kit-dev/schemas';
 
 /**
  * Evaluator rubrics contributed by module-fsd. Kept as TypeScript
@@ -8,7 +8,7 @@ import type { Rubric } from '@forge/schemas';
  *
  * Every criterion commits to a three-point score guide (0 / 5 / 10).
  * This is a deliberate constraint — see `RubricScoreSchema` in
- * `@forge/schemas` for the reasoning: we refuse a 7-point ladder
+ * `@forge-kit-dev/schemas` for the reasoning: we refuse a 7-point ladder
  * because it lets the Evaluator split the difference instead of
  * picking a side.
  */

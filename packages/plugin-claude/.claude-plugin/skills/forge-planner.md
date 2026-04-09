@@ -50,7 +50,7 @@ criteria: `"LoginForm is a functional component under 50 lines"`,
 ## Output shape
 
 Exactly one file at the path given in your expected outputs,
-matching `SpecSchema` from `@forge/schemas`. Every field that the
+matching `SpecSchema` from `@forge-kit-dev/schemas`. Every field that the
 schema marks required is required — omitting `successCriteria` or
 leaving `sprints` empty will cause forge to throw a
 `PlannerValidationError` and surface the failure to the user.

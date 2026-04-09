@@ -1,7 +1,7 @@
 import { copyFile, link, mkdir, rm, symlink } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 
-import type { Module, SkillDef } from '@forge/core';
+import type { Module, SkillDef } from '@forge-kit-dev/core';
 
 export type SkillLinkStrategy = 'symlink' | 'hardlink' | 'copy';
 

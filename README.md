@@ -11,7 +11,7 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 - **5 opt-in modules**: FSD / DDD / Clean Architecture / Clean Code / CQRS
 - **Hybrid enforcement**: mechanical rules block commits; semantic rubrics advise
 - **P-G-E pipeline**: physically separated agents with file-based handoff
-- **Dual distribution**: `npx @forge/cli init` or `/plugin install forge`
+- **Dual distribution**: `npx @forge-kit-dev/cli init` or `/plugin install forge`
 - **React/Next.js first**: all rules and rubrics are tuned for this stack
 
 ## Install
@@ -19,10 +19,10 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 ```bash
 # Bootstrap a new or existing Next.js project with forge
 cd my-app
-npx @forge/cli init .
+npx @forge-kit-dev/cli init .
 
 # Non-interactive: skip the wizard and specify modules directly
-npx @forge/cli init . --modules fsd,clean-code,ddd --enforcement hybrid
+npx @forge-kit-dev/cli init . --modules fsd,clean-code,ddd --enforcement hybrid
 ```
 
 This creates `.forge/config.json`, `eslint.config.js` (with the forge plugin registered), `.husky/pre-commit`, and `.claude/skills/`.
@@ -75,19 +75,19 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full P-G-E pipeline dia
 
 ## Quickstart
 
-See [QUICKSTART.md](QUICKSTART.md) for a 5-minute walkthrough from `npx @forge/cli init` to `/forge-eval`.
+See [QUICKSTART.md](QUICKSTART.md) for a 5-minute walkthrough from `npx @forge-kit-dev/cli init` to `/forge-eval`.
 
 ## Repository layout
 
 ```
 forge/
 ├── apps/
-│   ├── cli/                 # @forge/cli — npx entry
+│   ├── cli/                 # @forge-kit-dev/cli — npx entry
 │   └── playground/          # Next.js 14 demo (all 5 modules)
 ├── packages/
-│   ├── schemas/             # @forge/schemas — Zod schemas
-│   ├── agents/              # @forge/agents — P-G-E interfaces
-│   ├── core/                # @forge/core — Harness orchestrator
+│   ├── schemas/             # @forge-kit-dev/schemas — Zod schemas
+│   ├── agents/              # @forge-kit-dev/agents — P-G-E interfaces
+│   ├── core/                # @forge-kit-dev/core — Harness orchestrator
 │   ├── eslint-plugin-forge/ # Custom ESLint rules
 │   ├── module-fsd/
 │   ├── module-clean-code/

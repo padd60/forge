@@ -1,5 +1,5 @@
-import { loadModules, type Module } from '@forge/core';
-import type { EnforcementLevel } from '@forge/schemas';
+import { loadModules, type Module } from '@forge-kit-dev/core';
+import type { EnforcementLevel } from '@forge-kit-dev/schemas';
 
 import { writeForgeConfig } from '../io/write-config.js';
 import { writeEslintConfig } from '../io/write-eslint.js';

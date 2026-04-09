@@ -1,5 +1,5 @@
 {
-  "name": "@forge/eslint-plugin-forge",
+  "name": "@forge-kit-dev/eslint-plugin-forge",
   "version": "0.1.0",
   "description": "Custom ESLint rules for forge modules (component-max-lines, no-boolean-flag-arg, fsd-slice-boundary, etc.).",
   "license": "MIT",

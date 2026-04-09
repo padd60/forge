@@ -6,14 +6,14 @@ import type {
   EvaluatorInput,
   GeneratorInput,
   PlannerInput,
-} from '@forge/agents';
-import { RunLimitError } from '@forge/agents';
+} from '@forge-kit-dev/agents';
+import { RunLimitError } from '@forge-kit-dev/agents';
 import type {
   EvalReport,
   Handoff,
   Rubric,
   RunRequest,
-} from '@forge/schemas';
+} from '@forge-kit-dev/schemas';
 
 import type { HarnessOptions } from './config.js';
 import type { HarnessAgents } from './harness.js';

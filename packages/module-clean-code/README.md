@@ -1,4 +1,4 @@
-# @forge/module-clean-code
+# @forge-kit-dev/module-clean-code
 
 Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) principles, narrowed to the 15 rules we can actually enforce on a React/Next.js codebase without drowning developers in false positives. 10 of them are mechanical (block); 5 are advisory (Evaluator rubrics).
 
@@ -6,8 +6,8 @@ Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-
 
 | Rule | Source | Owner |
 |---|---|---|
-| `@forge/forge/component-max-lines` | Clean Code ch. 3 "Small!" | custom ESLint rule (this repo) |
-| `@forge/forge/no-boolean-flag-arg` | Clean Code ch. 3 "flag arguments" | custom ESLint rule (this repo) |
+| `@forge-kit-dev/forge/component-max-lines` | Clean Code ch. 3 "Small!" | custom ESLint rule (this repo) |
+| `@forge-kit-dev/forge/no-boolean-flag-arg` | Clean Code ch. 3 "flag arguments" | custom ESLint rule (this repo) |
 | `max-params` (limit 3) | Clean Code ch. 3 "few arguments" | ESLint core |
 | `no-console` (allow warn/error) | soft SRP discipline | ESLint core |
 | `complexity` (limit 12) | cognitive-complexity proxy | ESLint core |
@@ -20,7 +20,7 @@ v0.2 will add `@typescript-eslint/naming-convention`, `react/boolean-prop-naming
 - `r-clean-code-srp` — does this component have exactly one reason to change?
 - `r-clean-code-boundary` — is error handling explicit, or buried under nulls and silent catches?
 
-Every criterion is scored 0 / 5 / 10. The Evaluator is forbidden from picking 7 — see `RubricScoreSchema` in `@forge/schemas` for why. In short: a forced binary-ish choice stops the Evaluator from praising mediocre code.
+Every criterion is scored 0 / 5 / 10. The Evaluator is forbidden from picking 7 — see `RubricScoreSchema` in `@forge-kit-dev/schemas` for why. In short: a forced binary-ish choice stops the Evaluator from praising mediocre code.
 
 ## Skills
 

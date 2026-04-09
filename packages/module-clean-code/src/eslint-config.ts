@@ -1,4 +1,4 @@
-import type { EslintConfigFragment } from '@forge/core';
+import type { EslintConfigFragment } from '@forge-kit-dev/core';
 
 /**
  * ESLint config fragment contributed by module-clean-code. It focuses
@@ -10,8 +10,8 @@ import type { EslintConfigFragment } from '@forge/core';
  * ship only rules that do not require extra peer dependencies.
  *
  * What's Block (pre-commit):
- *   - `@forge/forge/component-max-lines`   — Clean Code #3 "Small!"
- *   - `@forge/forge/no-boolean-flag-arg`  — Clean Code #3 "flag args"
+ *   - `@forge-kit-dev/forge/component-max-lines`   — Clean Code #3 "Small!"
+ *   - `@forge-kit-dev/forge/no-boolean-flag-arg`  — Clean Code #3 "flag args"
  *   - `max-params` (ESLint core)           — Clean Code #3 "few args"
  *   - `no-console`                         — mild form of SRP discipline
  *   - `complexity` (ESLint core)           — cognitive-complexity proxy
@@ -25,10 +25,10 @@ import type { EslintConfigFragment } from '@forge/core';
  */
 export function cleanCodeEslintConfig(): EslintConfigFragment {
   return {
-    plugins: ['@forge/forge'],
+    plugins: ['@forge-kit-dev/forge'],
     rules: {
-      '@forge/forge/component-max-lines': ['error', { max: 50 }],
-      '@forge/forge/no-boolean-flag-arg': 'error',
+      '@forge-kit-dev/forge/component-max-lines': ['error', { max: 50 }],
+      '@forge-kit-dev/forge/no-boolean-flag-arg': 'error',
       'max-params': ['error', 3],
       'no-console': ['error', { allow: ['warn', 'error'] }],
       complexity: ['warn', 12],

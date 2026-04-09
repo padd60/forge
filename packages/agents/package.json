@@ -1,5 +1,5 @@
 {
-  "name": "@forge/agents",
+  "name": "@forge-kit-dev/agents",
   "version": "0.1.0",
   "description": "Planner/Generator/Evaluator interfaces and runtime contracts for forge.",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "lint": "eslint src --max-warnings 0"
   },
   "dependencies": {
-    "@forge/schemas": "workspace:*"
+    "@forge-kit-dev/schemas": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.12.0",
