@@ -1,0 +1,101 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build / Typecheck / Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: turbo-${{ runner.os }}-
+      - run: pnpm turbo run build typecheck test
+
+  examples-check:
+    name: Examples forge check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @forge/cli build
+      - run: pnpm --filter @forge/eslint-plugin-forge build
+      - name: forge check on each example
+        run: |
+          for d in apps/playground examples/nextjs-fsd-minimal examples/nextjs-fsd-ddd examples/nextjs-cqrs; do
+            echo "::group::$d"
+            (cd "$d" && pnpm exec forge check) || exit 1
+            echo "::endgroup::"
+          done
+
+  sync-skills-drift:
+    name: Sync-skills drift guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @forge/plugin-claude build
+      - run: pnpm --filter @forge/plugin-claude sync-skills
+      - name: Check for uncommitted skill changes
+        run: |
+          if ! git diff --exit-code packages/plugin-claude/.claude-plugin/skills/; then
+            echo "Skills drifted! Run: pnpm --filter @forge/plugin-claude sync-skills"
+            exit 1
+          fi
+
+  examples-parity:
+    name: Seed parity check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm seed:examples
+      - name: Check for uncommitted forge config changes
+        run: |
+          PATHS="apps/playground/.forge apps/playground/eslint.config.js"
+          for d in examples/nextjs-fsd-minimal examples/nextjs-fsd-ddd examples/nextjs-cqrs; do
+            PATHS="$PATHS $d/.forge $d/eslint.config.js"
+          done
+          if ! git diff --exit-code $PATHS; then
+            echo "Example forge configs drifted! Run: pnpm seed:examples"
+            exit 1
+          fi
