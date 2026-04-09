@@ -7,13 +7,7 @@
     "url": "https://github.com/padd60/forge"
   },
   "homepage": "https://github.com/padd60/forge",
+  "repository": "https://github.com/padd60/forge",
   "license": "MIT",
-  "agents": [
-    "agents/planner.json",
-    "agents/generator.json",
-    "agents/evaluator.json"
-  ],
-  "skills": ["skills"],
-  "commands": ["commands"],
-  "hooks": []
+  "keywords": ["architecture", "eslint", "react", "nextjs", "fsd", "ddd", "cqrs", "clean-architecture", "code-quality"]
 }
