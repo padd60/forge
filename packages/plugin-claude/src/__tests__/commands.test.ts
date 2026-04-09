@@ -26,17 +26,18 @@ async function readCmd(name: string): Promise<string> {
  */
 describe('commands/*.md drift guards', () => {
   describe('forge-init', () => {
-    it('runs npx @forge-kit-dev/cli init', async () => {
+    it('writes .forge/config.json directly without npx', async () => {
       const body = await readCmd('forge-init');
-      expect(body).toMatch(/@forge-kit-dev\/cli/);
-      expect(body).toMatch(/init/);
       expect(body).toMatch(/\.forge\/config\.json/);
+      expect(body).toMatch(/eslint\.config\.js/);
+      expect(body).toMatch(/Do NOT.*npx|not.*shell out/i);
     });
 
-    it('supports non-interactive --modules flag', async () => {
+    it('defines rules per module for eslint config generation', async () => {
       const body = await readCmd('forge-init');
-      expect(body).toMatch(/--modules/);
-      expect(body).toMatch(/--enforcement/);
+      expect(body).toMatch(/module-fsd/);
+      expect(body).toMatch(/module-clean-code/);
+      expect(body).toMatch(/fsd-slice-boundary/);
     });
   });
 
