@@ -3,10 +3,29 @@
 // Modules: module-clean-code, module-fsd, module-cqrs
 
 import forgePlugin from '@forge/eslint-plugin-forge';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   {
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/.turbo/**',
+      '**/coverage/**',
+      '**/build/**',
+    ],
+  },
+  {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+      },
+    },
     plugins: {
       '@forge/forge': forgePlugin,
     },
