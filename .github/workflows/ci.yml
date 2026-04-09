@@ -49,6 +49,8 @@ jobs:
           key: turbo-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: turbo-${{ runner.os }}-
       - run: pnpm turbo run build
+      - name: Rebuild bin links after build
+        run: pnpm install --frozen-lockfile
       - name: forge check on each example
         run: |
           for d in apps/playground examples/nextjs-fsd-minimal examples/nextjs-fsd-ddd examples/nextjs-cqrs; do
