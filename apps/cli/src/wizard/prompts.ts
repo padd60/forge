@@ -15,8 +15,8 @@ import {
   BUILTIN_MODULES,
   resolveModuleDependencies,
   type BuiltinModule,
-} from './dependency-resolver';
-import type { InitOptions } from '../commands/init';
+} from './dependency-resolver.js';
+import type { InitOptions } from '../commands/init.js';
 
 /**
  * The full wizard flow, lifted out of `init.ts` so tests can invoke

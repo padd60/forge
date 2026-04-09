@@ -1,12 +1,12 @@
 import { Command } from 'commander';
 import pc from 'picocolors';
 
-import { runAdd } from './commands/add';
-import { runCheck } from './commands/check';
-import { runEvalStub } from './commands/eval';
-import { runInit, type InitOptions } from './commands/init';
-import { runWizard } from './wizard/prompts';
-import type { BuiltinModule } from './wizard/dependency-resolver';
+import { runAdd } from './commands/add.js';
+import { runCheck } from './commands/check.js';
+import { runEvalStub } from './commands/eval.js';
+import { runInit, type InitOptions } from './commands/init.js';
+import { runWizard } from './wizard/prompts.js';
+import type { BuiltinModule } from './wizard/dependency-resolver.js';
 
 /**
  * Factory for the commander program. Factored out so tests can spin

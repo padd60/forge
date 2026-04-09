@@ -3,9 +3,9 @@ import { join } from 'node:path';
 
 import { EvalReportSchema, type EvalReport } from '@forge/schemas';
 
-import type { Evaluator, EvaluatorInput } from './evaluator';
-import type { AgentRuntime, SpawnRequest } from './runtime';
-import { EVALUATOR_TOOLKIT } from './toolkit';
+import type { Evaluator, EvaluatorInput } from './evaluator.js';
+import type { AgentRuntime, SpawnRequest } from './runtime.js';
+import { EVALUATOR_TOOLKIT } from './toolkit.js';
 
 export interface DefaultEvaluatorOptions {
   /** Base system prompt for the evaluator sub-agent. */

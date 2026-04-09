@@ -1,25 +1,25 @@
-export { Harness } from './harness';
-export type { HarnessAgents } from './harness';
-export { runPipeline } from './harness.run';
-export type { HarnessRunDeps } from './harness.run';
-export { defineModule } from './module';
-export type { Module, SkillDef, EslintConfigFragment } from './module';
+export { Harness } from './harness.js';
+export type { HarnessAgents } from './harness.js';
+export { runPipeline } from './harness.run.js';
+export type { HarnessRunDeps } from './harness.run.js';
+export { defineModule } from './module.js';
+export type { Module, SkillDef, EslintConfigFragment } from './module.js';
 export {
   DEFAULT_EVALUATOR_SETTINGS,
-} from './config';
-export type { ForgeConfig, HarnessOptions } from './config';
-export { loadModules } from './module-loader';
-export type { LoadResult } from './module-loader';
-export { resolveRuleConflicts } from './conflict-resolver';
-export type { RuleConflict } from './conflict-resolver';
-export { composePrompt } from './prompt';
+} from './config.js';
+export type { ForgeConfig, HarnessOptions } from './config.js';
+export { loadModules } from './module-loader.js';
+export type { LoadResult } from './module-loader.js';
+export { resolveRuleConflicts } from './conflict-resolver.js';
+export type { RuleConflict } from './conflict-resolver.js';
+export { composePrompt } from './prompt.js';
 export {
   computeRunPaths,
   createRunId,
   evalIterationDir,
   sprintDir,
-} from './paths';
-export type { RunPaths } from './paths';
+} from './paths.js';
+export type { RunPaths } from './paths.js';
 export {
   createRunIo,
   renderReportMd,
@@ -32,9 +32,9 @@ export {
   EVAL_REPORT_JSON_FILENAME,
   EVAL_REPORT_MD_FILENAME,
   EVAL_TO_GEN_HANDOFF_FILENAME,
-} from './run-io';
+} from './run-io.js';
 export type {
   RunFileReader,
   RunFileWriter,
   SprintSelfCheck,
-} from './run-io';
+} from './run-io.js';

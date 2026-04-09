@@ -1,16 +1,16 @@
 import { loadModules, type Module } from '@forge/core';
 import type { EnforcementLevel } from '@forge/schemas';
 
-import { writeForgeConfig } from '../io/write-config';
-import { writeEslintConfig } from '../io/write-eslint';
-import { writeGitignore } from '../io/write-gitignore';
-import { writeHuskyHook } from '../io/write-husky';
-import { writeSkills } from '../io/write-skills';
-import { BUILTIN_REGISTRY, selectModules } from '../registry';
+import { writeForgeConfig } from '../io/write-config.js';
+import { writeEslintConfig } from '../io/write-eslint.js';
+import { writeGitignore } from '../io/write-gitignore.js';
+import { writeHuskyHook } from '../io/write-husky.js';
+import { writeSkills } from '../io/write-skills.js';
+import { BUILTIN_REGISTRY, selectModules } from '../registry.js';
 import {
   resolveModuleDependencies,
   type BuiltinModule,
-} from '../wizard/dependency-resolver';
+} from '../wizard/dependency-resolver.js';
 
 /**
  * Inputs the wizard collects. Exposed as a plain interface so tests

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EnforcementLevelSchema } from './enforcement';
+import { EnforcementLevelSchema } from './enforcement.js';
 
 /**
  * Metadata for one P-G-E execution, written at `.forge/runs/<runId>/request.json`.

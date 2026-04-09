@@ -50,7 +50,6 @@ describe('writeEslintConfig → real ESLint runtime', () => {
     const eslint = new ESLint({
       cwd: tmpDir,
       overrideConfigFile: join(tmpDir, 'eslint.config.js'),
-      overrideConfig: [PARSER_OVERRIDE],
     });
     const results = await eslint.lintFiles([sourcePath]);
     const firstResult = results[0];
@@ -71,13 +70,12 @@ describe('writeEslintConfig → real ESLint runtime', () => {
     // activates — the rule keys off `/features/` in the filename.
     const featureDir = join(tmpDir, 'src', 'features', 'cart-add-item', 'ui');
     await mkdir(featureDir, { recursive: true });
-    const sourcePath = join(featureDir, 'cart-button.jsx');
+    const sourcePath = join(featureDir, 'cart-button.tsx');
     await writeFile(sourcePath, CROSS_SLICE_DEEP_IMPORT, 'utf8');
 
     const eslint = new ESLint({
       cwd: tmpDir,
       overrideConfigFile: join(tmpDir, 'eslint.config.js'),
-      overrideConfig: [PARSER_OVERRIDE],
     });
     const results = await eslint.lintFiles([sourcePath]);
     const firstResult = results[0];
@@ -88,25 +86,6 @@ describe('writeEslintConfig → real ESLint runtime', () => {
     expect(ruleIds).toContain('@forge/forge/fsd-slice-boundary');
   });
 });
-
-/**
- * Parser config passed alongside the generated flat config so ESLint
- * can parse the JSX test fixtures. In real forge-managed projects the
- * user's own `eslint.config.js` supplies `@typescript-eslint/parser`;
- * here we stick to espree + `ecmaFeatures.jsx` because the runtime
- * test is only about rule-id resolution, not TypeScript parsing.
- */
-const PARSER_OVERRIDE = {
-  languageOptions: {
-    ecmaVersion: 'latest' as const,
-    sourceType: 'module' as const,
-    parserOptions: {
-      ecmaVersion: 'latest' as const,
-      sourceType: 'module' as const,
-      ecmaFeatures: { jsx: true },
-    },
-  },
-};
 
 const OVER_SIZED_COMPONENT = `
 export function Huge() {

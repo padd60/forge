@@ -4,22 +4,13 @@
   "description": "Claude Code plugin bundle — slash commands, skills, agents for forge.",
   "license": "MIT",
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "types": "./src/index.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "default": "./src/index.ts"
-    }
-  },
-  "publishConfig": {
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.js"
-      }
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   },
   "files": [

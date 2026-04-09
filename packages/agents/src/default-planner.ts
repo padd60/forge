@@ -2,10 +2,10 @@ import { readFile } from 'node:fs/promises';
 
 import { SpecSchema, type Spec } from '@forge/schemas';
 
-import { PlannerValidationError } from './errors';
-import type { Planner, PlannerInput } from './planner';
-import type { AgentRuntime, SpawnRequest } from './runtime';
-import { PLANNER_TOOLKIT } from './toolkit';
+import { PlannerValidationError } from './errors.js';
+import type { Planner, PlannerInput } from './planner.js';
+import type { AgentRuntime, SpawnRequest } from './runtime.js';
+import { PLANNER_TOOLKIT } from './toolkit.js';
 
 export interface DefaultPlannerOptions {
   /**

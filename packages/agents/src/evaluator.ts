@@ -1,5 +1,5 @@
 import type { EvalReport, Rubric, Spec } from '@forge/schemas';
-import type { AgentRuntime } from './runtime';
+import type { AgentRuntime } from './runtime.js';
 
 export interface EvaluatorInput {
   runId: string;

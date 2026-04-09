@@ -1,14 +1,14 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { SprintFailedError } from './errors';
+import { SprintFailedError } from './errors.js';
 import type {
   Generator,
   GeneratorInput,
   GeneratorResult,
-} from './generator';
-import type { AgentRuntime, SpawnRequest } from './runtime';
-import { GENERATOR_TOOLKIT } from './toolkit';
+} from './generator.js';
+import type { AgentRuntime, SpawnRequest } from './runtime.js';
+import { GENERATOR_TOOLKIT } from './toolkit.js';
 
 export interface DefaultGeneratorOptions {
   /** Base system prompt. Module skills at stage 'generate' go here. */

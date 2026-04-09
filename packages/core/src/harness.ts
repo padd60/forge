@@ -1,13 +1,13 @@
 import type { Evaluator, Generator, Planner } from '@forge/agents';
 import type { EvalReport, RunRequest } from '@forge/schemas';
 
-import type { HarnessOptions } from './config';
+import type { HarnessOptions } from './config.js';
 import {
   resolveRuleConflicts,
   type RuleConflict,
-} from './conflict-resolver';
-import { runPipeline, type HarnessRunDeps } from './harness.run';
-import type { Module } from './module';
+} from './conflict-resolver.js';
+import { runPipeline, type HarnessRunDeps } from './harness.run.js';
+import type { Module } from './module.js';
 
 export interface HarnessAgents {
   planner: Planner;

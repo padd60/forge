@@ -1,7 +1,7 @@
 import { defineModule } from '@forge/core';
-import { cleanCodeEslintConfig } from './eslint-config';
-import { cleanCodeRubrics } from './rubrics';
-import { cleanCodeSkills } from './skills';
+import { cleanCodeEslintConfig } from './eslint-config.js';
+import { cleanCodeRubrics } from './rubrics.js';
+import { cleanCodeSkills } from './skills.js';
 
 /**
  * Clean Code sits above FSD in strictness, so it gets a lower number.

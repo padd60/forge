@@ -1,0 +1,8 @@
+.next/
+node_modules/
+.turbo/
+.husky/
+.claude/skills/
+.forge/runs/
+*.tsbuildinfo
+next-env.d.ts.bak

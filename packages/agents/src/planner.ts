@@ -1,5 +1,5 @@
 import type { Spec } from '@forge/schemas';
-import type { AgentRuntime } from './runtime';
+import type { AgentRuntime } from './runtime.js';
 
 /**
  * Input the Harness hands to the Planner. Everything except the goal

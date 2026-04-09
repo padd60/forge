@@ -1,7 +1,7 @@
 import { defineModule } from '@forge/core';
-import { fsdEslintConfig } from './eslint-config';
-import { fsdRubrics } from './rubrics';
-import { fsdSkills } from './skills';
+import { fsdEslintConfig } from './eslint-config.js';
+import { fsdRubrics } from './rubrics.js';
+import { fsdSkills } from './skills.js';
 
 /**
  * Default precedence for module-fsd. Lower numbers win rule conflicts,
@@ -36,6 +36,6 @@ export {
   isFsdLayer,
   isUpwardImport,
   layerOrder,
-} from './layer';
-export type { FsdLayer, SliceLocation, DetectOptions } from './layer';
+} from './layer.js';
+export type { FsdLayer, SliceLocation, DetectOptions } from './layer.js';
 export default moduleFsd;

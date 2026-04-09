@@ -1,7 +1,7 @@
 import { defineModule } from '@forge/core';
-import { cqrsEslintConfig } from './eslint-config';
-import { cqrsRubrics } from './rubrics';
-import { cqrsSkills } from './skills';
+import { cqrsEslintConfig } from './eslint-config.js';
+import { cqrsRubrics } from './rubrics.js';
+import { cqrsSkills } from './skills.js';
 
 /**
  * CQRS precedence sits between FSD (20) and DDD (40). When active it

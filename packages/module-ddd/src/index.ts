@@ -1,7 +1,7 @@
 import { defineModule } from '@forge/core';
-import { dddEslintConfig } from './eslint-config';
-import { dddRubrics } from './rubrics';
-import { dddSkills } from './skills';
+import { dddEslintConfig } from './eslint-config.js';
+import { dddRubrics } from './rubrics.js';
+import { dddSkills } from './skills.js';
 
 /**
  * DDD sits further from the hot path than FSD and Clean Code, so its

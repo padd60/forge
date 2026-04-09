@@ -1,8 +1,8 @@
 import { copyFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 
-import type { AgentRole } from './role';
-import type { AgentHandle, AgentRuntime, SpawnRequest } from './runtime';
+import type { AgentRole } from './role.js';
+import type { AgentHandle, AgentRuntime, SpawnRequest } from './runtime.js';
 
 /**
  * One fixture describes what the `MockRuntime` should produce for a

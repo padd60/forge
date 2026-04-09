@@ -15,17 +15,17 @@ import type {
   RunRequest,
 } from '@forge/schemas';
 
-import type { HarnessOptions } from './config';
-import type { HarnessAgents } from './harness';
-import type { Module } from './module';
-import { computeRunPaths, evalIterationDir, sprintDir } from './paths';
+import type { HarnessOptions } from './config.js';
+import type { HarnessAgents } from './harness.js';
+import type { Module } from './module.js';
+import { computeRunPaths, evalIterationDir, sprintDir } from './paths.js';
 import {
   createRunIo,
   renderReportMd,
   renderSpecMd,
   type RunFileReader,
   type RunFileWriter,
-} from './run-io';
+} from './run-io.js';
 
 /**
  * Execution-time dependencies for `Harness.run()`.

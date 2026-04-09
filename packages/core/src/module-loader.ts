@@ -1,4 +1,4 @@
-import type { Module } from './module';
+import type { Module } from './module.js';
 
 export interface LoadResult {
   active: readonly Module[];

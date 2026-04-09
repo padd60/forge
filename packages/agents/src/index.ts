@@ -1,24 +1,24 @@
-export type { AgentRole } from './role';
+export type { AgentRole } from './role.js';
 export {
   PLANNER_TOOLKIT,
   GENERATOR_TOOLKIT,
   EVALUATOR_TOOLKIT,
-} from './toolkit';
-export type { ForgeTool, AgentToolkit } from './toolkit';
-export type { AgentHandle, AgentRuntime, SpawnRequest } from './runtime';
-export type { Planner, PlannerInput } from './planner';
-export type { Generator, GeneratorInput, GeneratorResult } from './generator';
-export type { Evaluator, EvaluatorInput } from './evaluator';
+} from './toolkit.js';
+export type { ForgeTool, AgentToolkit } from './toolkit.js';
+export type { AgentHandle, AgentRuntime, SpawnRequest } from './runtime.js';
+export type { Planner, PlannerInput } from './planner.js';
+export type { Generator, GeneratorInput, GeneratorResult } from './generator.js';
+export type { Evaluator, EvaluatorInput } from './evaluator.js';
 export {
   PlannerValidationError,
   RunLimitError,
   SprintFailedError,
-} from './errors';
-export { MockRuntime } from './mock-runtime';
-export type { MockFixture, MockRuntimeOptions } from './mock-runtime';
-export { DefaultPlanner } from './default-planner';
-export type { DefaultPlannerOptions } from './default-planner';
-export { DefaultGenerator } from './default-generator';
-export type { DefaultGeneratorOptions } from './default-generator';
-export { DefaultEvaluator } from './default-evaluator';
-export type { DefaultEvaluatorOptions } from './default-evaluator';
+} from './errors.js';
+export { MockRuntime } from './mock-runtime.js';
+export type { MockFixture, MockRuntimeOptions } from './mock-runtime.js';
+export { DefaultPlanner } from './default-planner.js';
+export type { DefaultPlannerOptions } from './default-planner.js';
+export { DefaultGenerator } from './default-generator.js';
+export type { DefaultGeneratorOptions } from './default-generator.js';
+export { DefaultEvaluator } from './default-evaluator.js';
+export type { DefaultEvaluatorOptions } from './default-evaluator.js';

@@ -1,5 +1,5 @@
-import type { AgentRole } from './role';
-import type { AgentToolkit } from './toolkit';
+import type { AgentRole } from './role.js';
+import type { AgentToolkit } from './toolkit.js';
 
 /**
  * A handle representing one in-flight agent execution. Runtimes decide

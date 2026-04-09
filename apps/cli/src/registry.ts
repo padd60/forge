@@ -5,7 +5,7 @@ import { moduleDdd } from '@forge/module-ddd';
 import { moduleFsd } from '@forge/module-fsd';
 import type { Module } from '@forge/core';
 
-import type { BuiltinModule } from './wizard/dependency-resolver';
+import type { BuiltinModule } from './wizard/dependency-resolver.js';
 
 /**
  * Concrete registry of the v0.1 builtin modules. Everything in this

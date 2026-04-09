@@ -1,15 +1,15 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import type { ForgeConfigOnDisk } from '../io/write-config';
-import { writeEslintConfig } from '../io/write-eslint';
-import { writeSkills } from '../io/write-skills';
-import { selectModules } from '../registry';
+import type { ForgeConfigOnDisk } from '../io/write-config.js';
+import { writeEslintConfig } from '../io/write-eslint.js';
+import { writeSkills } from '../io/write-skills.js';
+import { selectModules } from '../registry.js';
 import {
   BUILTIN_MODULES,
   resolveModuleDependencies,
   type BuiltinModule,
-} from '../wizard/dependency-resolver';
+} from '../wizard/dependency-resolver.js';
 
 export interface AddOptions {
   repoRoot: string;

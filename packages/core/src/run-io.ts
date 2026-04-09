@@ -12,7 +12,7 @@ import {
   type Spec,
 } from '@forge/schemas';
 
-import type { RunPaths } from './paths';
+import type { RunPaths } from './paths.js';
 
 /**
  * Thrown when a file under `.forge/runs/<runId>/` fails its schema check.

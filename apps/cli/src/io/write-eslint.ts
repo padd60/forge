@@ -106,17 +106,48 @@ export default [];
   }
 
   const rulesJson = JSON.stringify(args.rules, null, 2);
-  // The `files` glob is required — ESLint flat config only lints
-  // `.js/.mjs/.cjs` unless you opt into more extensions. React /
-  // Next.js projects need `.jsx`/`.tsx` coverage for forge rules to
-  // fire on UI slices. The user can narrow this later without
-  // losing forge's defaults; we never overwrite their own file.
+  // Design notes on the emitted shape:
+  //   • `ignores` is a top-level "global ignores" block. ESLint 9
+  //     only respects `ignores` as a global if the object has no
+  //     other keys. Every forge-managed project should skip build
+  //     artifacts, vendor code, and caches by default so the
+  //     mechanical gate isn't drowned in noise from `.next/` or
+  //     `dist/`. Users can widen this by appending their own config
+  //     object — flat config arrays concatenate.
+  //   • `files` on the main block is required because ESLint flat
+  //     config only lints `.js/.mjs/.cjs` unless you opt into more
+  //     extensions. React/Next.js projects need `.jsx`/`.tsx`
+  //     coverage for forge rules to fire on UI slices.
+  //   • `@typescript-eslint/parser` is wired in because every forge
+  //     rule is designed for TS/JSX. Forge declares this as a peer
+  //     dep of the plugin — user projects install it once and every
+  //     generated config uses it. The parser itself has no rules so
+  //     it doesn't interfere with the forge ruleset.
   return `${header}
 import forgePlugin from '@forge/eslint-plugin-forge';
+import tsParser from '@typescript-eslint/parser';
 
 export default [
   {
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/.turbo/**',
+      '**/coverage/**',
+      '**/build/**',
+    ],
+  },
+  {
     files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+      },
+    },
     plugins: {
       '@forge/forge': forgePlugin,
     },

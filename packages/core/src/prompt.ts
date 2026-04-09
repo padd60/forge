@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import type { Module, SkillDef } from './module';
+import type { Module, SkillDef } from './module.js';
 
 type Stage = SkillDef['stage'];
 

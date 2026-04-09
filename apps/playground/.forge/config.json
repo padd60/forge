@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "enforcement": "hybrid",
+  "activeModules": [
+    "module-clean-code",
+    "module-fsd",
+    "module-cqrs",
+    "module-ddd",
+    "module-clean-arch"
+  ],
+  "evaluator": {
+    "minScore": 70,
+    "maxIterations": 3
+  }
+}

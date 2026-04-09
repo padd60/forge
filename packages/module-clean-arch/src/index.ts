@@ -1,7 +1,7 @@
 import { defineModule } from '@forge/core';
-import { cleanArchEslintConfig } from './eslint-config';
-import { cleanArchRubrics } from './rubrics';
-import { cleanArchSkills } from './skills';
+import { cleanArchEslintConfig } from './eslint-config.js';
+import { cleanArchRubrics } from './rubrics.js';
+import { cleanArchSkills } from './skills.js';
 
 const CLEAN_ARCH_PRECEDENCE = 50;
 

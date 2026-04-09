@@ -1,5 +1,5 @@
 import type { EnforcementLevel } from '@forge/schemas';
-import type { Module } from './module';
+import type { Module } from './module.js';
 
 /**
  * What `@forge/cli init` writes to `.forge/config.json` and what
