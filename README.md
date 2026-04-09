@@ -16,8 +16,29 @@ Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/esli
 
 ## Install
 
+### Claude Code plugin (recommended)
+
+forge is designed to work inside **Claude Code**. Install it as a plugin and get slash commands (`/forge-run`, `/forge-plan`, `/forge-eval`), auto-activated skills, and the full P-G-E pipeline out of the box:
+
+```
+# In Claude Code
+/plugin marketplace add padd60/forge
+/plugin install forge
+```
+
+Then initialize your project:
+
+```
+/forge-run "set up FSD architecture with login feature"
+```
+
+That's it — forge plans, generates, evaluates, and fixes in one command.
+
+### npx (standalone CLI)
+
+If you prefer using forge outside Claude Code, or want to set up the mechanical gate (ESLint + pre-commit) without the AI pipeline:
+
 ```bash
-# Bootstrap a new or existing Next.js project with forge
 cd my-app
 npx @forge-kit-dev/cli init .
 

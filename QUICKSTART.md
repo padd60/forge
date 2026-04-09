@@ -2,26 +2,36 @@
 
 ## Prerequisites
 
+- **Claude Code** (recommended — gives you the full P-G-E pipeline with slash commands)
 - Node.js 20+
-- pnpm 10+ (or use `npx` — it works too)
-- A Next.js / React project (or forge will help you pick modules for a new one)
-- Claude Code (optional but recommended for the full P-G-E loop)
+- A Next.js / React project
 
 ---
 
-## Minute 1 — Install
+## Minute 1 — Install the plugin
+
+Open Claude Code and run:
+
+```
+/plugin marketplace add padd60/forge
+/plugin install forge
+```
+
+This gives you `/forge-run`, `/forge-plan`, `/forge-generate`, `/forge-eval`, `/forge-fix` commands plus 13 auto-activated skills.
+
+<details>
+<summary>Alternative: npx (without Claude Code)</summary>
 
 ```bash
 cd my-next-app
 npx @forge-kit-dev/cli init .
-```
 
-The wizard asks which modules to activate and which enforcement level to use. For a quick start, pick **FSD + Clean Code** with **hybrid** enforcement:
-
-```bash
 # Non-interactive shortcut
 npx @forge-kit-dev/cli init . --modules fsd,clean-code --enforcement hybrid
 ```
+
+This sets up the mechanical gate (ESLint + pre-commit) but without the AI pipeline.
+</details>
 
 ---
 
