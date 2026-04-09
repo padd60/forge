@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+// VIOLATION: deep import bypassing another slice's public API
+// This should trigger @forge/forge/fsd-slice-boundary
+import { Hero } from '@/widgets/hero/hero';
 import { Button } from '@/shared/ui/button';
 
 import { subscribeToNewsletter } from '../model/signup';
