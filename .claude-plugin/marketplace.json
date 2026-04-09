@@ -1,0 +1,12 @@
+{
+  "name": "forge-marketplace",
+  "description": "Frontend AI code harness — FSD, DDD, Clean Architecture, Clean Code, CQRS enforcement via P-G-E pipeline.",
+  "plugins": [
+    {
+      "name": "forge",
+      "version": "0.1.0",
+      "description": "Frontend AI code harness — enforces FSD + DDD + Clean Arch + Clean Code + CQRS via Planner/Generator/Evaluator.",
+      "path": "packages/plugin-claude"
+    }
+  ]
+}

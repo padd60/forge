@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "Frontend AI code harness — enforces FSD + DDD + Clean Arch + Clean Code + CQRS via Planner/Generator/Evaluator.",
   "author": {
-    "name": "forge",
-    "url": "https://github.com/junghwankim/forge"
+    "name": "padd60",
+    "url": "https://github.com/padd60/forge"
   },
-  "homepage": "https://github.com/junghwankim/forge",
+  "homepage": "https://github.com/padd60/forge",
   "license": "MIT",
   "agents": [
     "agents/planner.json",
