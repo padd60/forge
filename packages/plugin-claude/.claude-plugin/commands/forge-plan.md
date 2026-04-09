@@ -1,7 +1,6 @@
 ---
-name: forge-plan
 description: Start a forge run — produce a Spec from a natural-language goal.
-arguments: "<goal>"
+argument-hint: Natural-language goal (e.g., "add a login form")
 ---
 
 # /forge-plan

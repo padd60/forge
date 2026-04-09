@@ -1,7 +1,6 @@
 ---
-name: forge-run
 description: Run the full forge P-G-E pipeline automatically — plan, generate, evaluate, and fix loop in one command.
-arguments: "<goal>"
+argument-hint: Natural-language goal (e.g., "add a login form with email validation")
 ---
 
 # /forge-run

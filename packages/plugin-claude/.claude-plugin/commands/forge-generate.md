@@ -1,7 +1,6 @@
 ---
-name: forge-generate
 description: Walk a forge Spec through its sprints, one sub-agent spawn per sprint.
-arguments: "[runId]"
+argument-hint: Optional runId (defaults to most recent run)
 ---
 
 # /forge-generate

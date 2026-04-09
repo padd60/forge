@@ -1,7 +1,6 @@
 ---
-name: forge-fix
 description: Re-enter the generator with the latest failing evaluator report as guidance.
-arguments: "[runId]"
+argument-hint: Optional runId (defaults to most recent failing run)
 ---
 
 # /forge-fix

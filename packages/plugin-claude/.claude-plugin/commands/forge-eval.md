@@ -1,7 +1,6 @@
 ---
-name: forge-eval
 description: Score the latest generator diff against the active rubrics, in a fresh context.
-arguments: "[runId]"
+argument-hint: Optional runId (defaults to most recent run with generator output)
 ---
 
 # /forge-eval

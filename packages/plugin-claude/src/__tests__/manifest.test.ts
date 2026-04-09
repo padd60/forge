@@ -29,15 +29,14 @@ describe('plugin.json manifest', () => {
     expect(manifest.description).toMatch(/forge|harness/i);
   });
 
-  it('references all three agent files', async () => {
-    const manifest = await readJson<{ agents: readonly string[] }>(
-      join(pluginRoot, 'plugin.json')
-    );
-    expect(manifest.agents).toEqual([
-      'agents/planner.json',
-      'agents/generator.json',
-      'agents/evaluator.json',
-    ]);
+  it('has all three agent files on disk (auto-discovered by Claude Code)', async () => {
+    for (const agent of ['planner', 'generator', 'evaluator']) {
+      const body = await readFile(
+        join(pluginRoot, 'agents', `${agent}.json`),
+        'utf8'
+      );
+      expect(body.length).toBeGreaterThan(0);
+    }
   });
 });
 
