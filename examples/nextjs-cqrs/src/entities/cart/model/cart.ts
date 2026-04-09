@@ -15,3 +15,9 @@ export interface Cart {
   readonly items: readonly CartItem[];
   readonly total: number;
 }
+
+// VIOLATION: command function in entities layer — should live in features/
+export function createCart(items: readonly CartItem[]): Cart {
+  const total = items.reduce((sum, item) => sum + item.quantity * item.unitPrice, 0);
+  return { id: `cart-${Date.now()}`, items, total };
+}
