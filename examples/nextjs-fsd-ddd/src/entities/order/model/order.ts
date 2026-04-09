@@ -19,18 +19,17 @@ export interface OrderLine {
   readonly unitPrice: number;
 }
 
+// VIOLATION: removed the `id` field — ddd-entity-id requires it
 export interface Order {
-  readonly id: string;
   readonly customerId: string;
   readonly lines: readonly OrderLine[];
   readonly total: number;
 }
 
 export function makeOrder(
-  id: string,
   customerId: string,
   lines: readonly OrderLine[]
 ): Order {
   const total = lines.reduce((sum, line) => sum + line.quantity * line.unitPrice, 0);
-  return { id, customerId, lines, total };
+  return { customerId, lines, total };
 }
