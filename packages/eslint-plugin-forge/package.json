@@ -4,32 +4,19 @@
   "description": "Custom ESLint rules for forge modules (component-max-lines, no-boolean-flag-arg, fsd-slice-boundary, etc.).",
   "license": "MIT",
   "type": "module",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./src/index.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./layer": {
       "types": "./src/layer.ts",
-      "default": "./src/layer.ts"
-    }
-  },
-  "publishConfig": {
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.js"
-      },
-      "./layer": {
-        "types": "./dist/layer.d.ts",
-        "import": "./dist/layer.js"
-      }
+      "import": "./dist/layer.js",
+      "default": "./dist/layer.js"
     }
   },
   "files": ["dist", "README.md"],

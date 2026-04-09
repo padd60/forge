@@ -1,12 +1,12 @@
 import { isAbsolute, posix, resolve } from 'node:path';
 
-import { createRule } from '../create-rule';
+import { createRule } from '../create-rule.js';
 import {
   detectSliceLocation,
   isCrossSlice,
   isUpwardImport,
   type SliceLocation,
-} from '../layer';
+} from '../layer.js';
 
 /**
  * Figure out the project root from an absolute file path by locating

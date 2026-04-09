@@ -94,10 +94,32 @@ function renderFlatConfig(args: {
     `// Modules: ${args.moduleNames.join(', ')}`,
     '',
   ].join('\n');
+
+  // If no modules contributed rules, emit a valid but empty config.
+  // We intentionally skip the plugin import in that case so a
+  // degenerate eslint.config.js still parses without pulling in a
+  // dependency the user might not have installed.
+  if (Object.keys(args.rules).length === 0) {
+    return `${header}
+export default [];
+`;
+  }
+
   const rulesJson = JSON.stringify(args.rules, null, 2);
+  // The `files` glob is required — ESLint flat config only lints
+  // `.js/.mjs/.cjs` unless you opt into more extensions. React /
+  // Next.js projects need `.jsx`/`.tsx` coverage for forge rules to
+  // fire on UI slices. The user can narrow this later without
+  // losing forge's defaults; we never overwrite their own file.
   return `${header}
+import forgePlugin from '@forge/eslint-plugin-forge';
+
 export default [
   {
+    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    plugins: {
+      '@forge/forge': forgePlugin,
+    },
     rules: ${indent(rulesJson, 4).trimStart()}
   },
 ];

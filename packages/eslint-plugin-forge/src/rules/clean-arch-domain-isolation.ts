@@ -1,4 +1,4 @@
-import { createRule } from '../create-rule';
+import { createRule } from '../create-rule.js';
 
 type Options = [
   {

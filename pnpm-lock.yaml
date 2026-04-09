@@ -60,9 +60,15 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
     devDependencies:
+      '@forge/eslint-plugin-forge':
+        specifier: workspace:*
+        version: link:../../packages/eslint-plugin-forge
       '@types/node':
         specifier: ^20.12.0
         version: 20.19.39
+      eslint:
+        specifier: ^9.15.0
+        version: 9.39.4
       rimraf:
         specifier: ^5.0.5
         version: 5.0.10

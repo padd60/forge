@@ -1,4 +1,4 @@
-import { rules } from './rules';
+import { rules } from './rules/index.js';
 
 const plugin = {
   meta: {
@@ -10,4 +10,4 @@ const plugin = {
 
 export default plugin;
 export { rules };
-export type { ForgeRuleName } from './rules';
+export type { ForgeRuleName } from './rules/index.js';

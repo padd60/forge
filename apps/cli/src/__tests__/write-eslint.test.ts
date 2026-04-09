@@ -53,6 +53,25 @@ describe('writeEslintConfig', () => {
       expect(body).toContain('"no-console": "error"');
       expect(body).toContain('"max-lines"');
       expect(body).toContain('module-a, module-b');
+      // Generated config must register the forge plugin so that
+      // downstream ESLint can resolve @forge/forge/* rule ids.
+      expect(body).toContain(
+        "import forgePlugin from '@forge/eslint-plugin-forge';"
+      );
+      expect(body).toContain("'@forge/forge': forgePlugin");
+    });
+  });
+
+  it('omits the forge plugin import when no rules are contributed', async () => {
+    await withTmpDir(async (dir) => {
+      const empty = makeModule('empty', 10, {});
+      const result = await writeEslintConfig({
+        repoRoot: dir,
+        modules: [empty],
+      });
+      const body = await readFile(result.filePath, 'utf8');
+      expect(body).not.toContain('@forge/eslint-plugin-forge');
+      expect(body).toContain('export default []');
     });
   });
 

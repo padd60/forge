@@ -1,9 +1,9 @@
-import { cleanArchDomainIsolation } from './clean-arch-domain-isolation';
-import { componentMaxLines } from './component-max-lines';
-import { cqrsLayerRole } from './cqrs-layer-role';
-import { dddEntityId } from './ddd-entity-id';
-import { fsdSliceBoundary } from './fsd-slice-boundary';
-import { noBooleanFlagArg } from './no-boolean-flag-arg';
+import { cleanArchDomainIsolation } from './clean-arch-domain-isolation.js';
+import { componentMaxLines } from './component-max-lines.js';
+import { cqrsLayerRole } from './cqrs-layer-role.js';
+import { dddEntityId } from './ddd-entity-id.js';
+import { fsdSliceBoundary } from './fsd-slice-boundary.js';
+import { noBooleanFlagArg } from './no-boolean-flag-arg.js';
 
 export const rules = {
   'component-max-lines': componentMaxLines,
