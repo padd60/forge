@@ -38,57 +38,46 @@ npx @forge/cli init . --modules fsd,clean-code --enforcement hybrid
 
 ---
 
-## Minute 3 — /forge-plan
+## Minute 3 — /forge-run (auto mode)
 
 Open Claude Code in your project and run:
 
 ```
-/forge-plan "add a profile edit page with email validation"
+/forge-run "add a profile edit page with email validation"
 ```
 
-The Planner agent reads your project structure and active modules, then writes:
+This single command chains the entire pipeline automatically:
+1. **Plans** — creates a structured spec with sprints
+2. **Generates** — writes code in sprint batches, self-checks lint/tsc
+3. **Evaluates** — a fresh agent scores the result against rubrics
+4. **Fixes** — if evaluation fails, re-generates and re-evaluates (up to 3 times)
 
-- `.forge/runs/<id>/planner/spec.json` — structured plan (sprints, success criteria)
-- `.forge/runs/<id>/planner/spec.md` — human-readable version
-
-Review the spec before continuing. Edit it if needed — it's just a file.
+You get a final pass/fail report at the end. All artifacts are saved under `.forge/runs/<id>/`.
 
 ---
 
-## Minute 4 — /forge-generate
+## Minute 4 — Review the results
 
+Check the generated code:
+```bash
+ls .forge/runs/            # find your run ID
+cat .forge/runs/<id>/evaluator/final.json   # see the score
 ```
-/forge-generate
-```
-
-The Generator reads the spec and produces code in sprint batches. Each sprint creates:
-
-- `diff.patch` — the actual code changes
-- `self-check.json` — ESLint + tsc results (mechanical gate)
-
-If the self-check fails, the Generator retries before handing off to the Evaluator.
 
 ---
 
-## Minute 5 — /forge-eval
+## Minute 5 — Step-by-step mode (optional)
+
+If you want to review each stage before proceeding, use the individual commands:
 
 ```
-/forge-eval
+/forge-plan "add a profile edit page"   # review spec.md before continuing
+/forge-generate                          # review diff.patch
+/forge-eval                              # review report.json
+/forge-fix                               # only if evaluation failed
 ```
 
-A **fresh** Evaluator agent (no shared context with the Generator) scores the result:
-
-- Reads the git diff + the original spec + your active rubrics
-- Produces `report.json` with a 0–10 score per rubric dimension
-- If the score is below threshold, suggests specific fixes
-
-If the evaluation fails:
-
-```
-/forge-fix
-```
-
-This re-enters the Generator with the Evaluator's feedback. The fix loop runs up to 3 iterations (configurable in `.forge/config.json`).
+This is useful when you want to edit the spec, inspect a sprint's diff, or understand why evaluation scored low.
 
 ---
 

@@ -27,12 +27,22 @@ npx @forge/cli init . --modules fsd,clean-code,ddd --enforcement hybrid
 
 This creates `.forge/config.json`, `eslint.config.js` (with the forge plugin registered), `.husky/pre-commit`, and `.claude/skills/`.
 
-## /forge-plan demo (Claude Code)
+## Usage (Claude Code)
+
+### Auto mode — one command does everything
 
 ```
-# Inside Claude Code, run:
+/forge-run "add a login form to the marketing site"
+```
+
+This chains the full pipeline automatically: **Plan → Generate → Evaluate → Fix loop** (up to 3 iterations). You get a final pass/fail report at the end.
+
+### Step-by-step mode — review each stage
+
+```
 /forge-plan "add a login form to the marketing site"
 # → .forge/runs/<id>/planner/spec.json + spec.md
+# Review the spec, then:
 
 /forge-generate
 # → .forge/runs/<id>/generator/sprint-01/diff.patch
@@ -44,6 +54,8 @@ This creates `.forge/config.json`, `eslint.config.js` (with the forge plugin reg
 /forge-fix
 # → re-enters the Generator with the Evaluator's feedback
 ```
+
+Use step-by-step when you want to inspect or edit intermediate artifacts (the spec, the diff, the rubric scores) before proceeding.
 
 ## Modules
 

@@ -72,6 +72,34 @@ describe('commands/*.md drift guards', () => {
     });
   });
 
+  describe('forge-run', () => {
+    it('chains all four phases (plan, generate, eval, fix)', async () => {
+      const body = await readCmd('forge-run');
+      expect(body).toMatch(/Phase 1.*Plan/i);
+      expect(body).toMatch(/Phase 2.*Generate/i);
+      expect(body).toMatch(/Phase 3.*Evaluate/i);
+      expect(body).toMatch(/Phase 4.*Fix/i);
+    });
+
+    it('enforces freshContext:true for the evaluator', async () => {
+      const body = await readCmd('forge-run');
+      expect(body).toMatch(/freshContext\s*:\s*true|fresh context/i);
+    });
+
+    it('prints a final summary with pass/fail status', async () => {
+      const body = await readCmd('forge-run');
+      expect(body).toMatch(/forge run complete|forge run failed/i);
+      expect(body).toMatch(/final\.json/);
+    });
+
+    it('writes all handoff artifacts to .forge/runs/', async () => {
+      const body = await readCmd('forge-run');
+      expect(body).toMatch(/\.forge\/runs\//);
+      expect(body).toMatch(/request\.json/);
+      expect(body).toMatch(/spec\.json/);
+    });
+  });
+
   describe('forge-fix', () => {
     it('requires freshContext:true on the first fix-loop sprint', async () => {
       const body = await readCmd('forge-fix');
