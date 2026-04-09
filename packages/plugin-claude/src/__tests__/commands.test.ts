@@ -9,7 +9,6 @@ const commandsDir = resolve(
   __dirname,
   '..',
   '..',
-  '.claude-plugin',
   'commands'
 );
 

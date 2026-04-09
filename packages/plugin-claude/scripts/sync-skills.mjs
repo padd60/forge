@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 /**
  * Copy every builtin module's skill markdown files into
- * `packages/plugin-claude/.claude-plugin/skills/` so the plugin
- * bundle ships them as a single staged directory Claude Code can
- * index at load time.
+ * `packages/plugin-claude/skills/` so the plugin bundle ships them
+ * as a single staged directory Claude Code can index at load time.
  *
  * This is a build-time script, not a runtime one — the output lives
- * under `.claude-plugin/skills/` and is checked into git on every
+ * under `skills/` (at the plugin root) and is checked into git on every
  * release. A CI job (Step 11) should run this script + `git diff
  * --exit-code` to catch drift where a module adds a skill but the
  * plugin bundle was not regenerated.
@@ -20,7 +19,6 @@ const repoRoot = resolve(__dirname, '..', '..', '..');
 const pluginSkillsDir = resolve(
   __dirname,
   '..',
-  '.claude-plugin',
   'skills'
 );
 

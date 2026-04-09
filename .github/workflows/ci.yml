@@ -81,7 +81,7 @@ jobs:
       - run: pnpm --filter @forge-kit-dev/plugin-claude sync-skills
       - name: Check for uncommitted skill changes
         run: |
-          if ! git diff --exit-code packages/plugin-claude/.claude-plugin/skills/; then
+          if ! git diff --exit-code packages/plugin-claude/skills/; then
             echo "Skills drifted! Run: pnpm --filter @forge-kit-dev/plugin-claude sync-skills"
             exit 1
           fi

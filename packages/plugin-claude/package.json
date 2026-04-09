@@ -16,6 +16,9 @@
   "files": [
     "dist",
     ".claude-plugin",
+    "agents",
+    "commands",
+    "skills",
     "README.md"
   ],
   "scripts": {

@@ -7,7 +7,8 @@ import { describe, expect, it } from 'vitest';
 import { FORGE_COMMANDS, FORGE_PLUGIN_VERSION } from '..';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const pluginRoot = resolve(__dirname, '..', '..', '.claude-plugin');
+const pluginRoot = resolve(__dirname, '..', '..');
+const pluginMetaDir = resolve(pluginRoot, '.claude-plugin');
 
 async function readJson<T = unknown>(filePath: string): Promise<T> {
   const raw = await readFile(filePath, 'utf8');
@@ -23,7 +24,7 @@ describe('plugin.json manifest', () => {
       agents: readonly string[];
       skills: readonly string[];
       commands: readonly string[];
-    }>(join(pluginRoot, 'plugin.json'));
+    }>(join(pluginMetaDir, 'plugin.json'));
     expect(manifest.name).toBe('forge');
     expect(manifest.version).toBe(FORGE_PLUGIN_VERSION);
     expect(manifest.description).toMatch(/forge|harness/i);

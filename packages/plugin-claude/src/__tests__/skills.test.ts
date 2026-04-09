@@ -9,7 +9,6 @@ const skillsDir = resolve(
   __dirname,
   '..',
   '..',
-  '.claude-plugin',
   'skills'
 );
 
@@ -19,7 +18,7 @@ const PROTECTED_FORGE_SKILLS = [
   'forge-evaluator.md',
 ];
 
-describe('.claude-plugin/skills', () => {
+describe('skills/', () => {
   it('contains all three hand-maintained forge-* skills', async () => {
     for (const name of PROTECTED_FORGE_SKILLS) {
       const body = await readFile(join(skillsDir, name), 'utf8');
