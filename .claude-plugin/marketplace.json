@@ -1,12 +1,19 @@
 {
-  "name": "forge-marketplace",
-  "description": "Frontend AI code harness — FSD, DDD, Clean Architecture, Clean Code, CQRS enforcement via P-G-E pipeline.",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "forge",
+  "description": "Frontend AI code harness — enforces FSD, DDD, Clean Architecture, Clean Code, CQRS via Planner/Generator/Evaluator pipeline.",
+  "owner": {
+    "name": "padd60",
+    "email": "padd60@gmail.com"
+  },
   "plugins": [
     {
       "name": "forge",
-      "version": "0.1.0",
-      "description": "Frontend AI code harness — enforces FSD + DDD + Clean Arch + Clean Code + CQRS via Planner/Generator/Evaluator.",
-      "path": "packages/plugin-claude"
+      "description": "Frontend AI code harness — enforces FSD + DDD + Clean Arch + Clean Code + CQRS via Planner/Generator/Evaluator with physically separated agents.",
+      "source": "./packages/plugin-claude",
+      "category": "development",
+      "tags": ["architecture", "eslint", "react", "nextjs", "fsd", "ddd", "cqrs", "code-quality"],
+      "homepage": "https://github.com/padd60/forge"
     }
   ]
 }
