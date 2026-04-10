@@ -1,6 +1,6 @@
 {
   "name": "@forge-kit-dev/module-fsd",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Feature-Sliced Design layer/slice/public-api module for forge. Ships ESLint config, skills, and Evaluator rubrics.",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,11 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist", "skills", "README.md"],
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -p tsconfig.json --watch",
