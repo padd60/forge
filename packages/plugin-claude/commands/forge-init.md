@@ -22,18 +22,16 @@ If the user provided module names in their message (e.g.
 
 "Which forge modules do you want to activate?"
 
-Present these options (use AskUserQuestion with multiSelect: true).
-**Pre-select FSD, Clean Code, and Testing by default** — these three
-cover foundational code quality regardless of architecture choice.
+You MUST present exactly 6 options using AskUserQuestion with
+multiSelect: true. Do NOT omit any. Pre-select options 1-3 by default.
 
-| Module | What it enforces |
-|---|---|
-| **FSD** (Feature-Sliced Design) ★ default | Layer direction, public-API imports, slice boundaries, no wildcard re-exports |
-| **Clean Code** ★ default | Component max 50 lines, no boolean flag args, max 3 params, no type escapes (any/ts-ignore) |
-| **Testing** ★ default | Test presence, assertion quality, error-path coverage, behavior-driven naming |
-| **DDD** (Domain-Driven Design) | Entity id field, value objects, ACL, domain events, bounded context |
-| **Clean Architecture** | No framework imports in domain layer, DIP, use-case centralization |
-| **CQRS** | Entities = readonly read model, features = commands (requires FSD) |
+The 6 options (ALL required):
+1. **FSD** (Feature-Sliced Design) ★ default — 레이어 방향성, public-API import, slice 경계, wildcard re-export 금지
+2. **Clean Code** ★ default — 컴포넌트 최대 50줄, boolean flag 인자 금지, 최대 3 파라미터, any/ts-ignore 금지
+3. **Testing** ★ default — 테스트 존재 여부, assertion 품질, 에러 경로 커버리지, 행위 기반 네이밍
+4. **DDD** (Domain-Driven Design) — Entity id 필드, Value Object, ACL, 도메인 이벤트, Bounded Context
+5. **Clean Architecture** — 도메인 레이어에서 프레임워크 import 금지, DIP, use-case 중앙화
+6. **CQRS** — entities = readonly read model, features = commands (FSD 필수)
 
 ### Dependency resolution
 
