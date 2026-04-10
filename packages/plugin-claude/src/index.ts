@@ -5,7 +5,7 @@
  * Turborepo treat it as a first-class workspace member (for typecheck
  * and publish), but there is nothing to import from it at runtime.
  */
-export const FORGE_PLUGIN_VERSION = '0.1.0';
+export const FORGE_PLUGIN_VERSION = '0.2.0';
 
 /** Absolute names of the slash commands this plugin exposes. */
 export const FORGE_COMMANDS = [

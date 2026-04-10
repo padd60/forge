@@ -15,6 +15,10 @@ export function fsdEslintConfig(): EslintConfigFragment {
     rules: {
       // Layer-direction, cross-slice, and public-API checks in one rule.
       '@forge-kit-dev/forge/fsd-slice-boundary': 'error',
+      // Steiger: wildcard re-exports damage discoverability and leak internals.
+      '@forge-kit-dev/forge/fsd-no-wildcard-reexport': 'error',
+      // Steiger: catch singular layer names (feature/ → features/).
+      '@forge-kit-dev/forge/fsd-layer-typo': 'error',
     },
   };
 }

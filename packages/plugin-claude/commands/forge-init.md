@@ -17,27 +17,31 @@ current config. Continue?"
 
 ## Step 2: Select modules
 
+Three core modules are **always included**: FSD, Clean Code, Testing.
+The user only picks optional architecture modules on top.
+
 If the user provided module names in their message (e.g.
-`/forge-init FSD and DDD`), use those directly. Otherwise, ask:
+`/forge-init with DDD`), add those to the core three and skip the
+interactive prompt.
 
-"Which forge modules do you want to activate?"
+Otherwise, first tell the user which core modules are included:
 
-You MUST present exactly 6 options using AskUserQuestion with
-multiSelect: true. Do NOT omit any. Pre-select options 1-3 by default.
+"기본 포함 모듈 (항상 활성화):
+• **FSD** — slice 경계 검증, public-API import 강제, wildcard re-export 금지, 레이어명 오타 감지
+• **Clean Code** — 컴포넌트 최대 50줄, boolean flag 금지, 최대 3 파라미터, any/ts-ignore/non-null assertion 금지, 네이밍·SRP·타입 안전성·에러 처리 rubric
+• **Testing** — 테스트 존재 여부, assertion 품질, 에러 경로 커버리지, 행위 기반 네이밍 rubric"
 
-The 6 options (ALL required):
-1. **FSD** (Feature-Sliced Design) ★ default — 레이어 방향성, public-API import, slice 경계, wildcard re-export 금지
-2. **Clean Code** ★ default — 컴포넌트 최대 50줄, boolean flag 인자 금지, 최대 3 파라미터, any/ts-ignore 금지
-3. **Testing** ★ default — 테스트 존재 여부, assertion 품질, 에러 경로 커버리지, 행위 기반 네이밍
-4. **DDD** (Domain-Driven Design) — Entity id 필드, Value Object, ACL, 도메인 이벤트, Bounded Context
-5. **Clean Architecture** — 도메인 레이어에서 프레임워크 import 금지, DIP, use-case 중앙화
-6. **CQRS** — entities = readonly read model, features = commands (FSD 필수)
+Then ask using AskUserQuestion with multiSelect: true:
 
-### Dependency resolution
+"추가할 아키텍처 모듈을 선택하세요 (선택 안 해도 됩니다):"
 
-- If CQRS is selected but FSD is not → auto-add FSD, tell the user:
-  "CQRS requires FSD for layer separation. FSD has been added automatically."
-- If DDD is selected → recommend Clean Code (soft suggestion, not forced)
+The 3 options:
+1. **DDD** — Entity id 필드 강제, 유비쿼터스 언어, aggregate 무결성, Value Object, ACL, 도메인 이벤트, Bounded Context rubric
+2. **Clean Architecture** — 도메인 레이어 프레임워크 import 금지, DIP, use-case 중앙화 rubric
+3. **CQRS** — entities 레이어 readonly 강제, read/write 분리, command discipline, 동기화 패턴 rubric
+
+Final activeModules = `[module-fsd, module-clean-code, module-testing]`
+plus whatever the user picked above.
 
 ## Step 3: Select enforcement level
 
@@ -117,8 +121,8 @@ export default [
 
 **Rules per module:**
 
-- **module-fsd**: `"@forge-kit-dev/forge/fsd-slice-boundary": "error"`, `"@forge-kit-dev/forge/fsd-no-wildcard-reexport": "error"`, `"@forge-kit-dev/forge/fsd-layer-typo": "error"`
-- **module-clean-code**: `"@forge-kit-dev/forge/component-max-lines": ["error", { "max": 50 }]`, `"@forge-kit-dev/forge/no-boolean-flag-arg": "error"`, `"@forge-kit-dev/forge/no-type-escape": "error"`, `"max-params": ["error", 3]`, `"no-console": ["error", { "allow": ["warn", "error"] }]`, `"complexity": ["warn", 12]`
+- **module-fsd** (3 rules): `"@forge-kit-dev/forge/fsd-slice-boundary": "error"`, `"@forge-kit-dev/forge/fsd-no-wildcard-reexport": "error"`, `"@forge-kit-dev/forge/fsd-layer-typo": "error"`
+- **module-clean-code** (6 rules): `"@forge-kit-dev/forge/component-max-lines": ["error", { "max": 50 }]`, `"@forge-kit-dev/forge/no-boolean-flag-arg": "error"`, `"@forge-kit-dev/forge/no-type-escape": "error"`, `"max-params": ["error", 3]`, `"no-console": ["error", { "allow": ["warn", "error"] }]`, `"complexity": ["warn", 12]`
 - **module-testing**: (no ESLint rules — rubric-only module)
 - **module-ddd**: `"@forge-kit-dev/forge/ddd-entity-id": "error"`
 - **module-clean-arch**: `"@forge-kit-dev/forge/clean-arch-domain-isolation": "error"`

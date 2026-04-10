@@ -34,7 +34,9 @@ forge is designed to work inside **Claude Code**. Install the plugin, initialize
 /forge-run "add a login page with email validation"
 ```
 
-**Step 2 is required** — `/forge-run` reads `.forge/config.json` to know which modules and rules to apply. `/forge-init` creates this config by running the forge CLI wizard.
+**Step 2 is required** — `/forge-run` reads `.forge/config.json` to know which modules and rules to apply. `/forge-init` creates this config interactively.
+
+> **Default modules**: FSD, Clean Code, Testing are always included (9 ESLint rules + 10 rubric criteria). You only choose whether to add DDD, Clean Architecture, or CQRS on top.
 
 ### npx (standalone CLI)
 

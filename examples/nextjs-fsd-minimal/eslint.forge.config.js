@@ -37,6 +37,7 @@ export default [
         }
       ],
       "@forge-kit-dev/forge/no-boolean-flag-arg": "error",
+      "@forge-kit-dev/forge/no-type-escape": "error",
       "max-params": [
         "error",
         3
@@ -54,7 +55,9 @@ export default [
         "warn",
         12
       ],
-      "@forge-kit-dev/forge/fsd-slice-boundary": "error"
+      "@forge-kit-dev/forge/fsd-slice-boundary": "error",
+      "@forge-kit-dev/forge/fsd-no-wildcard-reexport": "error",
+      "@forge-kit-dev/forge/fsd-layer-typo": "error"
     }
   },
 ];

@@ -37,6 +37,7 @@ export default [
         }
       ],
       "@forge-kit-dev/forge/no-boolean-flag-arg": "error",
+      "@forge-kit-dev/forge/no-type-escape": "error",
       "max-params": [
         "error",
         3
@@ -55,6 +56,8 @@ export default [
         12
       ],
       "@forge-kit-dev/forge/fsd-slice-boundary": "error",
+      "@forge-kit-dev/forge/fsd-no-wildcard-reexport": "error",
+      "@forge-kit-dev/forge/fsd-layer-typo": "error",
       "@forge-kit-dev/forge/cqrs-layer-role": "error",
       "@forge-kit-dev/forge/ddd-entity-id": "error",
       "@forge-kit-dev/forge/clean-arch-domain-isolation": "error"

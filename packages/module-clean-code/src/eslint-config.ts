@@ -29,6 +29,8 @@ export function cleanCodeEslintConfig(): EslintConfigFragment {
     rules: {
       '@forge-kit-dev/forge/component-max-lines': ['error', { max: 50 }],
       '@forge-kit-dev/forge/no-boolean-flag-arg': 'error',
+      // Flag any, as casts, @ts-ignore, non-null assertions in exported code.
+      '@forge-kit-dev/forge/no-type-escape': 'error',
       'max-params': ['error', 3],
       'no-console': ['error', { allow: ['warn', 'error'] }],
       complexity: ['warn', 12],
