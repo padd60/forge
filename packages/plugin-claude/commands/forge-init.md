@@ -22,14 +22,17 @@ If the user provided module names in their message (e.g.
 
 "Which forge modules do you want to activate?"
 
-Present these options (use AskUserQuestion with multiSelect: true):
+Present these options (use AskUserQuestion with multiSelect: true).
+**Pre-select FSD, Clean Code, and Testing by default** — these three
+cover foundational code quality regardless of architecture choice.
 
 | Module | What it enforces |
 |---|---|
-| **FSD** (Feature-Sliced Design) | Layer direction, public-API imports, slice boundaries |
-| **Clean Code** | Component max 50 lines, no boolean flag args, max 3 params |
-| **DDD** (Domain-Driven Design) | Entity must have `id` field |
-| **Clean Architecture** | No framework imports in domain layer |
+| **FSD** (Feature-Sliced Design) ★ default | Layer direction, public-API imports, slice boundaries, no wildcard re-exports |
+| **Clean Code** ★ default | Component max 50 lines, no boolean flag args, max 3 params, no type escapes (any/ts-ignore) |
+| **Testing** ★ default | Test presence, assertion quality, error-path coverage, behavior-driven naming |
+| **DDD** (Domain-Driven Design) | Entity id field, value objects, ACL, domain events, bounded context |
+| **Clean Architecture** | No framework imports in domain layer, DIP, use-case centralization |
 | **CQRS** | Entities = readonly read model, features = commands (requires FSD) |
 
 ### Dependency resolution
@@ -69,6 +72,7 @@ After collecting answers, create these files:
 Module name mapping (display name → config value):
 - FSD → `module-fsd`
 - Clean Code → `module-clean-code`
+- Testing → `module-testing`
 - DDD → `module-ddd`
 - Clean Architecture → `module-clean-arch`
 - CQRS → `module-cqrs`
@@ -115,8 +119,9 @@ export default [
 
 **Rules per module:**
 
-- **module-fsd**: `"@forge-kit-dev/forge/fsd-slice-boundary": "error"`
-- **module-clean-code**: `"@forge-kit-dev/forge/component-max-lines": ["error", { "max": 50 }]`, `"@forge-kit-dev/forge/no-boolean-flag-arg": "error"`, `"max-params": ["error", 3]`, `"no-console": ["error", { "allow": ["warn", "error"] }]`, `"complexity": ["warn", 12]`
+- **module-fsd**: `"@forge-kit-dev/forge/fsd-slice-boundary": "error"`, `"@forge-kit-dev/forge/fsd-no-wildcard-reexport": "error"`, `"@forge-kit-dev/forge/fsd-layer-typo": "error"`
+- **module-clean-code**: `"@forge-kit-dev/forge/component-max-lines": ["error", { "max": 50 }]`, `"@forge-kit-dev/forge/no-boolean-flag-arg": "error"`, `"@forge-kit-dev/forge/no-type-escape": "error"`, `"max-params": ["error", 3]`, `"no-console": ["error", { "allow": ["warn", "error"] }]`, `"complexity": ["warn", 12]`
+- **module-testing**: (no ESLint rules — rubric-only module)
 - **module-ddd**: `"@forge-kit-dev/forge/ddd-entity-id": "error"`
 - **module-clean-arch**: `"@forge-kit-dev/forge/clean-arch-domain-isolation": "error"`
 - **module-cqrs**: `"@forge-kit-dev/forge/cqrs-layer-role": "error"`
