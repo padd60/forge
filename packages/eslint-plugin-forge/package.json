@@ -25,6 +25,7 @@
     "dev": "tsc -p tsconfig.json --watch",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rimraf dist .turbo",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
     "test": "vitest run",
     "lint": "eslint src --max-warnings 0"
   },
