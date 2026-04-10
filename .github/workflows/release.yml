@@ -36,8 +36,4 @@ jobs:
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NPM_TOKEN is intentionally unset for now.
-          # Without it the action opens a "Version Packages" PR
-          # instead of publishing to npm. Uncomment the line below
-          # and add the secret when you are ready to publish.
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
