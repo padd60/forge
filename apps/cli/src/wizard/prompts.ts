@@ -74,7 +74,7 @@ export async function runWizard(cwd: string): Promise<InitOptions | null> {
         hint: 'Read/Write split (requires FSD)',
       },
     ],
-    initialValues: ['module-fsd'],
+    initialValues: ['module-fsd', 'module-clean-code', 'module-testing'],
     required: true,
   });
   if (isCancel(picked)) return cancelOut();
