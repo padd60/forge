@@ -54,6 +54,11 @@ export async function runWizard(cwd: string): Promise<InitOptions | null> {
         hint: 'Size / naming / SRP',
       },
       {
+        value: 'module-testing' satisfies BuiltinModule,
+        label: 'Testing',
+        hint: 'Test presence / quality / naming',
+      },
+      {
         value: 'module-ddd' satisfies BuiltinModule,
         label: 'DDD',
         hint: 'Bounded contexts & aggregates',

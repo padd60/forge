@@ -24,9 +24,9 @@ describe('@forge-kit-dev/module-ddd', () => {
     ]);
   });
 
-  it('exposes two rubrics with weights totaling 1', () => {
+  it('exposes six rubrics with weights totaling 1', () => {
     const rubrics = moduleDdd.rubrics?.() ?? [];
-    expect(rubrics).toHaveLength(2);
+    expect(rubrics).toHaveLength(6);
     for (const r of rubrics) {
       const total = r.criteria.reduce((acc, c) => acc + c.weight, 0);
       expect(total).toBeCloseTo(1, 5);

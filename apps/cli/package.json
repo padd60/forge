@@ -33,6 +33,7 @@
     "@forge-kit-dev/module-cqrs": "workspace:*",
     "@forge-kit-dev/module-ddd": "workspace:*",
     "@forge-kit-dev/module-fsd": "workspace:*",
+    "@forge-kit-dev/module-testing": "workspace:*",
     "@forge-kit-dev/schemas": "workspace:*",
     "commander": "^12.1.0",
     "execa": "^9.5.1",

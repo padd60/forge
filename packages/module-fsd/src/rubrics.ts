@@ -31,7 +31,7 @@ export function fsdRubrics(): readonly Rubric[] {
             zero:
               'Upward imports exist (e.g. shared importing features). This means the dependency direction is inverted and the architecture is effectively collapsed.',
             five:
-              'No hard upward imports, but widgets reach directly into entities without using a feature as the composition point.',
+              'No hard upward imports, but one or two widgets reach directly into entities without using a feature as the composition point.',
             ten:
               'Every import in the diff goes strictly downward in the FSD stack.',
           },
@@ -85,7 +85,7 @@ export function fsdRubrics(): readonly Rubric[] {
             zero:
               'Most feature slices are named by noun (e.g. `features/user`) and therefore describe a data concept, not a capability.',
             five:
-              'A few feature slices are named by noun but most are verbs.',
+              'One or two feature slices are named by noun, but the rest are verb-led.',
             ten:
               'Every feature slice is verb-led and its name reveals its purpose at a glance.',
           },
@@ -100,7 +100,7 @@ export function fsdRubrics(): readonly Rubric[] {
             zero:
               'Entities are named by action or technical detail (e.g. `entities/login`, `entities/api-client`).',
             five:
-              'Entities are mostly domain nouns, with a couple of leaks from other concerns.',
+              'Entities are mostly domain nouns, with one or two leaks from other concerns.',
             ten:
               'Every entity slice is a clean domain noun.',
           },
@@ -139,7 +139,7 @@ export function fsdRubrics(): readonly Rubric[] {
             zero:
               'Widgets reimplement feature logic (state, mutations) inline.',
             five:
-              'Widgets mostly compose features but contain some inline logic that belongs in a feature.',
+              'Widgets mostly compose features but one or two contain inline logic that belongs in a feature.',
             ten:
               'Widgets are pure composition — they orchestrate features without owning state.',
           },

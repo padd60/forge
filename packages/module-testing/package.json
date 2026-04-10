@@ -1,0 +1,36 @@
+{
+  "name": "@forge-kit-dev/module-testing",
+  "version": "0.1.0",
+  "description": "Test quality evaluation as a forge module — test presence, assertion quality, naming, and structure.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rimraf dist .turbo",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint src --max-warnings 0"
+  },
+  "dependencies": {
+    "@forge-kit-dev/core": "workspace:*",
+    "@forge-kit-dev/schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

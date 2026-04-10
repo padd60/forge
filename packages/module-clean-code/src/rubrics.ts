@@ -29,7 +29,7 @@ export function cleanCodeRubrics(): readonly Rubric[] {
             zero:
               'Variables are named `data`, `info`, `tmp`, `value` — no hint at their purpose.',
             five:
-              'Most variables are descriptive, with a handful of `data`/`info` leftovers.',
+              'Most variables are descriptive, with one or two `data`/`info` leftovers.',
             ten:
               'Every variable name answers "what does this hold and why".',
           },
@@ -44,7 +44,7 @@ export function cleanCodeRubrics(): readonly Rubric[] {
             zero:
               'Functions named after types or adjectives (`userHelper`, `dataValidator`).',
             five:
-              'Most functions are verbs, but a few are noun phrases.',
+              'All exported functions are verbs except one or two noun phrases.',
             ten:
               'Every exported function name is a verb phrase.',
           },
@@ -68,7 +68,7 @@ export function cleanCodeRubrics(): readonly Rubric[] {
             zero:
               'A single component owns UI, data fetching, state, and formatting — any of four change reasons modifies it.',
             five:
-              'Most components are focused, with one offender that should be split.',
+              'All components have a single responsibility except one that should be split.',
             ten:
               'Every component has one reason to change. Data lives in hooks, UI in components, formatting in pure helpers.',
           },
@@ -107,7 +107,7 @@ export function cleanCodeRubrics(): readonly Rubric[] {
             zero:
               'Public functions return `T | null` and callers `if (result)` everywhere.',
             five:
-              'A few legacy null returns remain, the rest use Result/throw.',
+              'One or two legacy null returns remain; the rest use Result/throw.',
             ten:
               'No null returns in the diff. Success and failure are both first-class.',
           },
@@ -125,6 +125,84 @@ export function cleanCodeRubrics(): readonly Rubric[] {
               'One swallowed catch remains as a legitimate fallback but is documented.',
             ten:
               'Every catch either throws, logs with context, or returns a typed failure.',
+          },
+        },
+      ],
+    },
+    {
+      id: 'r-clean-code-type-safety',
+      module: 'module-clean-code',
+      title: 'TypeScript type safety',
+      description:
+        'The diff avoids type escapes that undermine the type system.',
+      criteria: [
+        {
+          id: 'no-any-escape',
+          title: 'No any or type assertion escapes',
+          description:
+            'The diff contains no `any` annotations, `as` casts, `@ts-ignore`, or `@ts-expect-error`.',
+          weight: 0.5,
+          scoreGuide: {
+            zero:
+              'Multiple `any` types, `as` casts, or `@ts-ignore` comments appear in the diff. The type system is routinely bypassed.',
+            five:
+              'One or two type escapes remain as documented workarounds with explanatory comments.',
+            ten:
+              'No type escapes in the diff. Every value is properly typed or narrowed.',
+          },
+        },
+        {
+          id: 'discriminated-unions',
+          title: 'Discriminated unions over class hierarchies',
+          description:
+            'Conditional logic uses discriminated unions with exhaustive switch/match, not class inheritance chains.',
+          weight: 0.5,
+          scoreGuide: {
+            zero:
+              'Multiple if/else chains check `instanceof` or string comparisons without a discriminant field. Adding a variant requires touching every consumer.',
+            five:
+              'One or two conditional branches use manual type checks instead of a discriminant field.',
+            ten:
+              'Every variant type uses a discriminant field and every switch is exhaustive (unreachable default or `never` check).',
+          },
+        },
+      ],
+    },
+    {
+      id: 'r-clean-code-effect-management',
+      module: 'module-clean-code',
+      title: 'Explicit effect management',
+      description:
+        'Fallible operations return typed results instead of throwing or returning null.',
+      criteria: [
+        {
+          id: 'result-types',
+          title: 'Result types for fallible operations',
+          description:
+            'Functions that can fail return a `Result<T, E>`, `Either`, or a discriminated success/failure union.',
+          weight: 0.5,
+          scoreGuide: {
+            zero:
+              'Fallible operations throw exceptions as their primary error signaling mechanism. Callers must guess what to catch.',
+            five:
+              'One or two fallible operations still throw; the rest return typed results.',
+            ten:
+              'Every fallible operation in the diff returns a typed result. Callers handle both paths explicitly.',
+          },
+        },
+        {
+          id: 'no-domain-throws',
+          title: 'No throws in the domain layer',
+          description:
+            'Domain logic communicates failure through return values, not exceptions.',
+          weight: 0.5,
+          scoreGuide: {
+            zero:
+              'Domain functions throw exceptions for business rule violations (e.g. `throw new InsufficientFundsError()`).',
+            five:
+              'One domain function still throws for a business rule violation; the rest return typed failures.',
+            ten:
+              'No domain function throws. All business rule violations are returned as typed failure values.',
           },
         },
       ],

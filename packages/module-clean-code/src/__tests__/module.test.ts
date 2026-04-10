@@ -30,13 +30,15 @@ describe('@forge-kit-dev/module-clean-code', () => {
     ]);
   });
 
-  it('exposes three rubrics with per-rubric weight totals of 1', () => {
+  it('exposes five rubrics with per-rubric weight totals of 1', () => {
     const rubrics = moduleCleanCode.rubrics?.() ?? [];
     const ids = rubrics.map((r) => r.id).sort();
     expect(ids).toEqual([
       'r-clean-code-boundary',
+      'r-clean-code-effect-management',
       'r-clean-code-intent',
       'r-clean-code-srp',
+      'r-clean-code-type-safety',
     ]);
     for (const rubric of rubrics) {
       const total = rubric.criteria.reduce((acc, c) => acc + c.weight, 0);

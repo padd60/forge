@@ -6,6 +6,7 @@
 export const BUILTIN_MODULES = [
   'module-fsd',
   'module-clean-code',
+  'module-testing',
   'module-ddd',
   'module-clean-arch',
   'module-cqrs',

@@ -21,15 +21,12 @@ describe('@forge-kit-dev/module-cqrs', () => {
     expect(names).toEqual(['cqrs-command', 'cqrs-read-model']);
   });
 
-  it('exposes one rubric with weights totaling 1', () => {
+  it('exposes four rubrics with weights totaling 1', () => {
     const rubrics = moduleCqrs.rubrics?.() ?? [];
-    expect(rubrics).toHaveLength(1);
-    const [rubric] = rubrics;
-    expect(rubric).toBeDefined();
-    const total = (rubric?.criteria ?? []).reduce(
-      (acc, c) => acc + c.weight,
-      0
-    );
-    expect(total).toBeCloseTo(1, 5);
+    expect(rubrics).toHaveLength(4);
+    for (const r of rubrics) {
+      const total = r.criteria.reduce((acc, c) => acc + c.weight, 0);
+      expect(total).toBeCloseTo(1, 5);
+    }
   });
 });

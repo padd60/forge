@@ -70,14 +70,15 @@ describe('resolveModuleDependencies', () => {
     expect(r.activeModules).toEqual(['module-fsd']);
   });
 
-  it('exposes the BUILTIN_MODULES constant containing all five v0.1 modules', () => {
-    expect(BUILTIN_MODULES).toHaveLength(5);
+  it('exposes the BUILTIN_MODULES constant containing all six v0.1 modules', () => {
+    expect(BUILTIN_MODULES).toHaveLength(6);
     expect([...BUILTIN_MODULES].sort()).toEqual([
       'module-clean-arch',
       'module-clean-code',
       'module-cqrs',
       'module-ddd',
       'module-fsd',
+      'module-testing',
     ]);
   });
 });

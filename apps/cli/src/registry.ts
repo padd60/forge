@@ -3,6 +3,7 @@ import { moduleCleanCode } from '@forge-kit-dev/module-clean-code';
 import { moduleCqrs } from '@forge-kit-dev/module-cqrs';
 import { moduleDdd } from '@forge-kit-dev/module-ddd';
 import { moduleFsd } from '@forge-kit-dev/module-fsd';
+import { moduleTesting } from '@forge-kit-dev/module-testing';
 import type { Module } from '@forge-kit-dev/core';
 
 import type { BuiltinModule } from './wizard/dependency-resolver.js';
@@ -19,6 +20,7 @@ import type { BuiltinModule } from './wizard/dependency-resolver.js';
 export const BUILTIN_REGISTRY: Readonly<Record<BuiltinModule, Module>> = {
   'module-fsd': moduleFsd,
   'module-clean-code': moduleCleanCode,
+  'module-testing': moduleTesting,
   'module-ddd': moduleDdd,
   'module-clean-arch': moduleCleanArch,
   'module-cqrs': moduleCqrs,

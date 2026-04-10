@@ -24,6 +24,15 @@ export interface ForgeConfig {
     /** Usually `<repoRoot>/.forge`. */
     forgeDir: string;
   };
+  /**
+   * Optional per-module weight overrides for scoring. Keys are module
+   * names (e.g. `"module-fsd"`), values are positive numbers. When
+   * omitted, every active module contributes equally to the total score.
+   *
+   * Example: `{ "module-fsd": 3, "module-cqrs": 1 }` gives FSD 75%
+   * and CQRS 25% of the total score (weights are normalized to sum to 1).
+   */
+  moduleWeights?: Record<string, number>;
 }
 
 /**

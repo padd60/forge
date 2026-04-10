@@ -1,6 +1,6 @@
 export { Harness } from './harness.js';
 export type { HarnessAgents } from './harness.js';
-export { runPipeline } from './harness.run.js';
+export { runPipeline, recomputeScore } from './harness.run.js';
 export type { HarnessRunDeps } from './harness.run.js';
 export { defineModule } from './module.js';
 export type { Module, SkillDef, EslintConfigFragment } from './module.js';

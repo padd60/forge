@@ -58,7 +58,7 @@ export function cleanArchRubrics(): readonly Rubric[] {
             zero:
               'User actions are implemented entirely inside component event handlers. There is no standalone place to read the business flow.',
             five:
-              'A few central actions are extracted into use cases, but most still live in components.',
+              'One or two central actions are extracted into use cases, but the rest still live in components.',
             ten:
               'Every non-trivial user action is an explicit use case that can be read independently of the UI that triggers it.',
           },
