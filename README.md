@@ -1,15 +1,16 @@
 # forge
 
-> Frontend AI code harness — enforces **FSD**, **DDD**, **Clean Architecture**, **Clean Code**, and **CQRS** via a **Planner → Generator → Evaluator** pipeline.
+> Frontend AI code harness — enforces **FSD**, **DDD**, **Clean Architecture**, **Clean Code**, **CQRS**, and **Testing** via a **Planner → Generator → Evaluator** pipeline.
 
-`forge` is a framework-agnostic harness that wraps Claude Code (and any AI code agent) to make sure generated React/Next.js code cannot violate the architecture you have chosen. It combines **mechanical enforcement** (ESLint, tsc, knip) with an **independent agent-level evaluator** backed by rubrics — the two-layer safety net described in Anthropic's [harness design for long-running applications](https://www.anthropic.com/engineering/harness-design-long-running-apps).
+`forge` is a React/Next.js-first harness that wraps Claude Code (and any AI code agent) to make sure generated code cannot violate the architecture you have chosen. It combines **mechanical enforcement** (ESLint, tsc) with an **independent agent-level evaluator** backed by rubrics — the two-layer safety net described in Anthropic's [harness design for long-running applications](https://www.anthropic.com/engineering/harness-design-long-running-apps).
 
 ## Why forge
 
 Existing FSD linters (Steiger, `eslint-plugin-boundaries`, `@feature-sliced/eslint-config`) check **what you already wrote**. forge checks **how the code is being written** — by splitting work across a Planner, a Generator, and an Evaluator that run in fresh contexts so one agent cannot rubber-stamp another.
 
-- **5 opt-in modules**: FSD / DDD / Clean Architecture / Clean Code / CQRS
-- **Hybrid enforcement**: mechanical rules block commits; semantic rubrics advise
+- **6 opt-in modules**: FSD / DDD / Clean Architecture / Clean Code / CQRS / Testing
+- **Hybrid enforcement**: 11 mechanical ESLint rules block commits; 40 semantic rubric criteria advise
+- **Score verification**: evaluator scores are recomputed in code with module-level weight normalization
 - **P-G-E pipeline**: physically separated agents with file-based handoff
 - **Dual distribution**: Claude Code plugin (`/forge-init`) or standalone CLI
 - **React/Next.js first**: all rules and rubrics are tuned for this stack
@@ -81,13 +82,14 @@ Use step-by-step when you want to inspect or edit intermediate artifacts (the sp
 
 ## Modules
 
-| Module | Block rules (pre-commit) | Advisory rubric (Evaluator) | Skills |
+| Module | Block rules (pre-commit) | Advisory rubrics (Evaluator) | Skills |
 |---|---|---|---|
-| **module-fsd** | `fsd-slice-boundary` | composition, public-API usage | `fsd-layer-placement`, `fsd-public-api`, `fsd-composition` |
-| **module-clean-code** | `component-max-lines`, `no-boolean-flag-arg`, `max-params`, `no-console`, `complexity` | intent clarity, props drilling, SRP | `clean-code-naming`, `clean-code-srp`, `clean-code-component-size` |
-| **module-ddd** | `ddd-entity-id` | ubiquitous language, anemic model | `ddd-aggregate-root`, `ddd-bounded-context`, `ddd-value-object` |
-| **module-clean-arch** | `clean-arch-domain-isolation` | DIP compliance, interface segregation | `clean-arch-use-case`, `clean-arch-dip` |
-| **module-cqrs** | `cqrs-layer-role` | eventual consistency, sync strategy | `cqrs-read-model`, `cqrs-command` |
+| **module-fsd** | `fsd-slice-boundary`, `fsd-no-wildcard-reexport`, `fsd-layer-typo` | boundary integrity, naming, cohesion, segment discipline, app-layer | `fsd-layer-placement`, `fsd-public-api`, `fsd-composition` |
+| **module-clean-code** | `component-max-lines`, `no-boolean-flag-arg`, `no-type-escape`, `max-params`, `no-console`, `complexity` | intent clarity, SRP, error boundaries, type safety, effect management | `clean-code-naming`, `clean-code-srp`, `clean-code-component-size` |
+| **module-ddd** | `ddd-entity-id` | ubiquitous language, aggregate integrity, value objects, ACL, domain events, bounded context | `ddd-aggregate-root`, `ddd-bounded-context`, `ddd-value-object` |
+| **module-clean-arch** | `clean-arch-domain-isolation` | DIP compliance, use-case centralization | `clean-arch-use-case`, `clean-arch-dip` |
+| **module-cqrs** | `cqrs-layer-role` | read/write separation, command discipline, read-model discipline, sync patterns | `cqrs-read-model`, `cqrs-command` |
+| **module-testing** | — | test presence, assertion quality, error-path coverage, behavior-driven naming | — |
 
 ## Architecture
 
@@ -116,6 +118,7 @@ forge/
 │   ├── module-ddd/
 │   ├── module-clean-arch/
 │   ├── module-cqrs/
+│   ├── module-testing/      # Test quality evaluation
 │   ├── plugin-claude/       # Claude Code plugin bundle
 │   └── testkit/             # rule test harness (v0.2)
 ├── examples/
@@ -128,9 +131,10 @@ forge/
 ## Core philosophy
 
 1. **Physical separation of Generator and Evaluator.** Agents that evaluate their own work confidently praise mediocrity. forge always spawns the Evaluator in a fresh Claude Code sub-agent with no shared context.
-2. **Three-layer rule system.** Every module contributes to one or more of: **Mechanical** (ESLint, pre-commit, block), **Skill** (auto-activated prompt in Claude Code), **Rubric** (Evaluator advisory score).
-3. **Options are internal abstractions.** Because every architecture concern is an opt-in module, forge's core is forced to treat them as first-class plug-ins.
-4. **Harness, not assistant.** forge does not help you write code. It refuses to generate code that violates the architecture you picked, and it tells you why.
+2. **Score verification.** The harness recomputes the evaluator's score in code using criterion weights. Each active module contributes equally to the total score regardless of how many criteria it ships — so activating CQRS (8 criteria) carries the same weight as FSD (13 criteria).
+3. **Three-layer rule system.** Every module contributes to one or more of: **Mechanical** (11 ESLint rules, pre-commit, block), **Skill** (auto-activated prompt in Claude Code), **Rubric** (40 criteria scored 0/5/10 by the Evaluator).
+4. **Options are internal abstractions.** Because every architecture concern is an opt-in module, forge's core is forced to treat them as first-class plug-ins.
+5. **Harness, not assistant.** forge does not help you write code. It refuses to generate code that violates the architecture you picked, and it tells you why.
 
 ## Status
 
