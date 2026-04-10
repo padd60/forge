@@ -1,6 +1,6 @@
 {
   "name": "@forge-kit-dev/module-cqrs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CQRS mapping module for forge — entities layer is the read model, features layer owns commands.",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,11 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist", "skills", "README.md"],
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -p tsconfig.json --watch",

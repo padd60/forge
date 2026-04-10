@@ -1,6 +1,6 @@
 {
   "name": "@forge-kit-dev/module-clean-arch",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Clean Architecture module for forge. Enforces framework-free domain, use cases, and dependency inversion.",
   "license": "MIT",
   "type": "module",
@@ -14,7 +14,11 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist", "skills", "README.md"],
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -p tsconfig.json --watch",
